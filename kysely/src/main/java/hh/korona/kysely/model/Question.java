@@ -24,8 +24,6 @@ public class Question {
 
     public Question(String question, Query query, Answer answer) {
         this.question = question;
-        this.query = query;
-        this.answer = answer;
     }
 
     public Long getQuestion_id() {
