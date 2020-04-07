@@ -2,6 +2,7 @@ package hh.korona.kysely.model;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class User {
@@ -20,7 +21,7 @@ public class User {
     private String role;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private String role;
+    private List<Query> queryList;
 
 
     public User() {
@@ -32,11 +33,11 @@ public class User {
         this.role = role;
     }
 
-    public Long getId() {
+    public Long getUser_id() {
         return user_id;
     }
 
-    public void setId(Long user_id) {
+    public void setUser_id(Long user_id) {
         this.user_id = user_id;
     }
 
@@ -64,13 +65,11 @@ public class User {
         this.role = role;
     }
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + user_id +
-                ", username='" + username + '\'' +
-                ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
-                '}';
+    public List<Query> getQueryList() {
+        return queryList;
+    }
+
+    public void setQueryList(List<Query> queryList) {
+        this.queryList = queryList;
     }
 }
