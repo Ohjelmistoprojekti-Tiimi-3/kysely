@@ -50,19 +50,18 @@ public class Question {
         this.query = query;
     }
 
-    public Answer getAnswer() {
+    public List<Answer> getAnswer() {
         return answer;
     }
 
-    public void setAnswer(Answer answer) {
+    public void setAnswer(List<Answer> answer) {
         this.answer = answer;
     }
-
 
     @Override
     public String toString() {
         return "Question{" +
-                "user_id=" + user_id +
+                "user_id=" + question_id +
                 ", question='" + question + '\'' +
                 ", query=" + query +
                 ", answer=" + answer +
