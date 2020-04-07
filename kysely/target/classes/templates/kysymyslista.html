@@ -27,8 +27,8 @@
 		</tr>
 
 		<tr th:each="query : ${queries}">
-			<td th:text="${query.id}">id</td>
-			<td th:text="${query.title}">author</td>
+			<td th:text="${query.query_id}">id</td>
+			<td th:text="${query.question}">author</td>
 			<td th:text="${query.date}">title</td>
 			<!-- <td th:text="${book.category.name}">category</td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deletebook/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
