@@ -1,1 +1,2 @@
-This is read me
+Kuva projektin kaavioista oneDrivessa
+https://haagahelia-my.sharepoint.com/personal/bgh311_myy_haaga-helia_fi/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fkuva%5Fprojektin%5Fkaavioista%2EPNG&parent=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti
