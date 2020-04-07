@@ -3,7 +3,6 @@ package hh.korona.kysely.model;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.List;
 
 @Entity
 public class Query {
@@ -17,7 +16,7 @@ public class Query {
     private String question;
 
     @Column(name = "date", nullable = false)
-    private Date data;
+    private Date date;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
@@ -26,9 +25,9 @@ public class Query {
     public Query() {
     }
 
-    public Query(String question, Date data, User user) {
+    public Query(String question, Date date, User user) {
         this.question = question;
-        this.data = data;
+        this.date = date;
         this.user = user;
     }
 
@@ -48,12 +47,12 @@ public class Query {
         this.question = question;
     }
 
-    public Date getData() {
-        return data;
+    public Date getDate() {
+        return date;
     }
 
-    public void setData(Date data) {
-        this.data = data;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public User getUser() {
@@ -69,7 +68,7 @@ public class Query {
         return "Query{" +
                 "query_id=" + query_id +
                 ", question='" + question + '\'' +
-                ", data=" + data +
+                ", date=" + date +
                 ", user=" + user +
                 '}';
     }
