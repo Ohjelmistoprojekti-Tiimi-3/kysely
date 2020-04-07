@@ -25,7 +25,7 @@ public class Answer {
     @Column(name = "date", nullable = false)
     private Date date;
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
 	    private Question question;
 
 	public Answer() {

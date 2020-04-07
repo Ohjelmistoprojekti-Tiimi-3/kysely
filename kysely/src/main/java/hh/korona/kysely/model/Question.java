@@ -16,7 +16,7 @@ public class Question {
     @ManyToOne(cascade = CascadeType.ALL)
     private Query query;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<Answer> answer;
 
     public Question() {

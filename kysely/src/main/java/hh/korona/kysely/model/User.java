@@ -20,7 +20,7 @@ public class User {
     @Column(name = "role", nullable = false)
     private String role;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     private List<Query> queryList;
 
 

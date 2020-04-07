@@ -18,7 +18,7 @@ public class Query {
     @Column(name = "date", nullable = false)
     private Date date;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     private User user;
 
 
