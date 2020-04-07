@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+	<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
 	<title>Book List</title>
@@ -12,13 +12,18 @@
 	<table class="table table-striped">
 		<tr>
 			<th>ID</th>
-			<th>Query</th>
-			<th>Date</th>
+			<th style="float:left;">Question</th>
 		</tr>
 
+<<<<<<< HEAD
 		<tr th:each="query : ${queries}">
 			<td th:text="${query.queryId}">id</td>
 			<td th:text="${query.date}">author</td>
+=======
+		<tr th:each="question : ${queries}">
+			<td th:text="${question.question_id}">id</td>
+			<td th:text="${question.question}">question</td>
+>>>>>>> d4e8e6fcd309879427e945cda36bfe53a23f4fb6
 			<!-- <td th:text="${book.category.name}">category</td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deletebook/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editbook/{id}(id=${book.id})}"  class="btn btn-danger">Edit</a></td> -->

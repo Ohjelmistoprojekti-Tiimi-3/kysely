@@ -29,12 +29,6 @@ public class KyselyController {
         return "Hello :)";
     }
 
-    @RequestMapping(value = "/kysymyslista")
-    public String getQuestions(Model model){
-        List<Question> questions = (List<Question>) questionRepository.findAll();
-        model.addAttribute("queries", questions);
-        return "kysymyslista";
-    }
 
     @RequestMapping(value = "/kysymykset")
     public String getQuery(Model model){
