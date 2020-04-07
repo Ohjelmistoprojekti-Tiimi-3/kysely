@@ -3,17 +3,15 @@ package hh.korona.kysely.model;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Query {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "query_id")
-    private Long query_id;
-
-    @Column(name = "question", nullable = false, unique = true)
-    private String question;
+    @Column(name = "queryId")
+    private Long queryId;
 
     @Column(name = "date", nullable = false)
     private Date date;
@@ -21,30 +19,26 @@ public class Query {
     @ManyToOne
     private User user;
 
+    @OneToMany
+    private List<Question> questions;
+
 
     public Query() {
     }
 
-    public Query(String question, Date date, User user) {
-        this.question = question;
+    public Query(Date date, User user, List<Question> questions) {
         this.date = date;
         this.user = user;
+        this.questions = questions;
     }
 
-    public Long getQuery_id() {
-        return query_id;
+
+    public Long getQueryId() {
+        return queryId;
     }
 
-    public void setQuery_id(Long query_id) {
-        this.query_id = query_id;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQueryId(Long queryId) {
+        this.queryId = queryId;
     }
 
     public Date getDate() {
@@ -63,13 +57,21 @@ public class Query {
         this.user = user;
     }
 
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(List<Question> questions) {
+        this.questions = questions;
+    }
+
     @Override
     public String toString() {
         return "Query{" +
-                "query_id=" + query_id +
-                ", question='" + question + '\'' +
+                "queryId=" + queryId +
                 ", date=" + date +
                 ", user=" + user +
+                ", questions=" + questions +
                 '}';
     }
 }
