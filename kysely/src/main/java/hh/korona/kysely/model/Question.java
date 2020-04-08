@@ -5,10 +5,11 @@ import java.util.List;
 
 @Entity
 public class Question {
+	
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "question_id")
-    private Long question_id;
+    @Column(name = "questionId")
+    private Long questionId;
 
     @Column(name = "question", nullable = false, unique = true)
     private String question;
@@ -26,15 +27,15 @@ public class Question {
         this.question = question;
     }
 
-    public Long getQuestion_id() {
-        return question_id;
-    }
+    public Long getQuestionId() {
+		return questionId;
+	}
 
-    public void setQuestion_id(Long question_id) {
-        this.question_id = question_id;
-    }
+	public void setQuestionId(Long questionId) {
+		this.questionId = questionId;
+	}
 
-    public String getQuestion() {
+	public String getQuestion() {
         return question;
     }
 
@@ -61,7 +62,7 @@ public class Question {
     @Override
     public String toString() {
         return "Question{" +
-                "user_id=" + question_id +
+                "questionId=" + questionId +
                 ", question='" + question + '\'' +
                 ", query=" + query +
                 ", answer=" + answer +

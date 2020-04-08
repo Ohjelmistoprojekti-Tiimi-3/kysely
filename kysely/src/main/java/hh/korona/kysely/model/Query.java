@@ -1,6 +1,5 @@
 package hh.korona.kysely.model;
 
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -12,6 +11,9 @@ public class Query {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "queryId")
     private Long queryId;
+    
+    @Column(name = "title", nullable = false)
+    private String title;
 
     @Column(name = "date", nullable = false)
     private Date date;
@@ -26,9 +28,10 @@ public class Query {
     public Query() {
     }
 
-    public Query(Date date, User user, List<Question> questions) {
+    public Query(Date date, User user, String title, List<Question> questions) {
         this.date = date;
         this.user = user;
+        this.title = title;
         this.questions = questions;
     }
 
@@ -40,8 +43,16 @@ public class Query {
     public void setQueryId(Long queryId) {
         this.queryId = queryId;
     }
+    
+    public String getTitle() {
+		return title;
+	}
 
-    public Date getDate() {
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Date getDate() {
         return date;
     }
 
@@ -69,6 +80,7 @@ public class Query {
     public String toString() {
         return "Query{" +
                 "queryId=" + queryId +
+                "title=" + title +
                 ", date=" + date +
                 ", user=" + user +
                 ", questions=" + questions +

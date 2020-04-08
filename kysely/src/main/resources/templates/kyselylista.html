@@ -1,29 +1,30 @@
 	<!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-	<title>Kysymys listaus</title>
+	<title>Kysely lista</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	<div class="col-md-4">
-		<h1 th:inline="text">Kysely & Kysymykset</h1>
+		<h1 th:inline="text">Kyselyt</h1>
 	</div>
 
 	<table class="table table-striped">
 		<tr>
 			<th>ID</th>
-			<th>Question</th
+			<th>Title</th>
+			<th>Date</th>
 		</tr>
 
-		<tr th:each="question : ${questions}">	
-			<td th:text="${question.questionId}">id</td>
-			<td th:text="${question.question}">question</td>
+		<tr th:each="query : ${queries}">
+			<td th:text="${query.queryId}">id</td>
+			<td th:text="${query.title}">id</td>
+			<td th:text="${query.date}">question</td>
 			<!-- <td th:text="${book.category.name}">category</td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deletebook/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editbook/{id}(id=${book.id})}"  class="btn btn-danger">Edit</a></td> -->
 		</tr>
 	</table>
-
 	<!-- <a sec:authorize="hasAuthority('ADMIN')" href="/newbook" class="btn btn-success">New Book</a> -->
 
 </body>

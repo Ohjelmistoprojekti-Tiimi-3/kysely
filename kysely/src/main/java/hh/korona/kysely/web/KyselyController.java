@@ -8,6 +8,7 @@ import hh.korona.kysely.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -30,10 +31,17 @@ public class KyselyController {
     }
 
 
-    @RequestMapping(value = "/kysymykset")
-    public String getQuery(Model model){
+    @RequestMapping(value = "/kyselyt")
+    public String getQueries(Model model){
         List<Query> queries = (List<Query>) queryRepository.findAll();
         model.addAttribute("queries", queries);
+        return "kyselylista";
+    }
+    
+    @RequestMapping(value = "/kysymykset")
+    public String getQuestions(Model model){
+    	List<Question> questions = (List<Question>) questionRepository.findAll();
+    	model.addAttribute("questions", questions);
         return "kysymyslista";
     }
 
