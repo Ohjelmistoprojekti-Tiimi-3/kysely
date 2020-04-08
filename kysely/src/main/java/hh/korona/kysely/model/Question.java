@@ -19,11 +19,16 @@ public class Question {
 
     @OneToMany
     private List<Answer> answer;
+    
+    public Question(String question) {
+		super();
+		this.question = question;
+	}
 
     public Question() {
     }
 
-    public Question(String question, Query query, Answer answer) {
+	public Question(String question, Query query, Answer answer) {
         this.question = question;
     }
 
