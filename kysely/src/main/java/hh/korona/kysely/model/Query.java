@@ -15,7 +15,7 @@ public class Query {
     @Column(name = "title", nullable = false)
     private String title;
 
-    @Column(name = "date", nullable = false)
+    @Column(name = "date")
     private Date date;
 
     @ManyToOne

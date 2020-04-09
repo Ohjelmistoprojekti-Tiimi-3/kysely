@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Kysymysform</title>
@@ -9,6 +9,15 @@
 
 <form th:object="${question}" th:action="@{/talkysym}" action="#" method="post">
     <input type="text" th:field="${question.questionString}"/>
+
+    <label for="querylist">Kyselyt</label>
+    <select id="querylist" th:field="*{query}" class="form-control">
+        <option th:each="query: ${querylist}"
+                th:value="${query.queryId}"
+                th:text="${query.title}">
+        </option>
+    </select>
+
     <input type="submit" value="Save"/>
 </form>
 

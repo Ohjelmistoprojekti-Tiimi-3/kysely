@@ -31,7 +31,8 @@ public class KyselyApplication {
         return (args) -> {
             //Saving some questions
 
-            queryRepository.save(new Query(new Date(), null, "Esimerkki Kysely", null));
+            queryRepository.save(new Query(new Date(), null, "Kysely 1", null));
+            queryRepository.save(new Query(new Date(), null, "Kysely 2", null));
 
 
 

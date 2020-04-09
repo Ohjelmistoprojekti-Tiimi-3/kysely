@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -33,6 +34,12 @@ public class KyselyController {
     public String getTestString(){
         return "Hello :)";
     }
+
+
+    @ModelAttribute("query")
+	public Query query() {
+    	return new Query();
+	}
 
 
     @RequestMapping(value = "/kyselyt")
@@ -83,6 +90,40 @@ public class KyselyController {
 		questionRepository.save(question);
 		return "redirect:/kysymykset";
 	}
+
+	// Tyhjä kysely lomake
+	//@PreAuthorize("hasAuthority('ADMIN')")
+	@RequestMapping(value = "/uusikysymys", method = RequestMethod.GET)
+	public String uusiKysymys(Model model) {
+		model.addAttribute("newQuery", new Query()); // tyhjä kysymys + kysely dropdown
+		model.addAttribute("querylist", queryRepository.findAll());
+		return "kyselyform";
+	}
+
+	// kirja lomakkeen tietojen talletus
+	//@PreAuthorize("hasAuthority('ADMIN')")
+	@RequestMapping(value = "/tallennauusikysely", method = RequestMethod.POST)
+	public String tallennaKysely(@ModelAttribute Query query,Model model) {
+		// talletetaan yhden kirjan tiedot tietokantaan
+		queryRepository.save(query);
+		model.addAttribute("query",query);
+		System.out.println(query.toString());
+		return "kyselykysymysform";
+	}
+
+
+	// kirja lomakkeen tietojen talletus
+	//@PreAuthorize("hasAuthority('ADMIN')")
+	@RequestMapping(value = "/olemassaolevakysely", method = RequestMethod.POST)
+	public String useExistingQuery(@ModelAttribute ("query") Query query, Model model) {
+		// talletetaan yhden kirjan tiedot tietokantaan
+
+		System.out.println(query.toString());
+		model.addAttribute("query",query);
+
+		return "kyselykysymysform";
+	}
+
 
 
 }

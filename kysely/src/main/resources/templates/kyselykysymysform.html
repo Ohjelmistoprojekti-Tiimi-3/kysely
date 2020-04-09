@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Kysymysform</title>
+</head>
+<body>
+<h1>Kysymys</h1>
+
+<form th:object="${query}" th:action="@{/talkysym}" action="#" method="post">
+    <h1 th:text="${query.title}"></h1>
+    <input type="submit" value="Save"/>
+</form>
+
+</body>
+</html>

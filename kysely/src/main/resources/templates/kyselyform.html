@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
+
+=======
+=======
+>>>>>>> Stashed changes
+<html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-<meta  http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Kyselyform</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Kysymysform</title>
 </head>
 <body>
-<h1>Kysely</h1>
-<!-- <form th:object="${question}" th:action="@{/talkysym}" action="#" method="post"> -->
-<!--    <input type="text" th:field="${question.questionString}"/>  -->
-<form th:object="${query}" th:action="@{/talkysel}" action="#" method="post"></form>
-<input type="text" th:field="${query.}" />
-<input type="submit" value="Save"/>
+<h1>Käytetäänkö olemassa olevaa kyselyä vai luodaanko uusi?</h1>
+
+<form th:action="@{/olemassaolevakysely}"  action="#" method="post">
+        <select  id="querylist" class="form-control" th:field="*{query.queryId}" name="querylist">
+            <option th:each="query: ${querylist}"
+                    th:value="${query.queryId}"
+                    th:text="${query.title}">
+            </option>
+        </select>
+        <input type="submit" value="Käytä kyselyä"/>
+</form>
+
+<h1>Luo uusi kysely</h1>
+
+<form th:object="${newQuery}" th:action="@{/tallennauusikysely}" action="#" method="post">
+    <input type="text" th:field="${newQuery.title}"/>
+    <input type="submit" value="Save"/>
+</form>
+
+
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
 </body>
 </html>
