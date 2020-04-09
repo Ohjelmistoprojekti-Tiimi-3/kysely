@@ -11,7 +11,7 @@ public class Question {
     @Column(name = "questionId")
     private Long questionId;
 
-    @Column(name = "question", nullable = false, unique = true)
+    @Column(name = "question")
     private String question;
 
     @ManyToOne(cascade = CascadeType.ALL)
