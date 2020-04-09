@@ -71,7 +71,6 @@ public class KyselyController {
 	@RequestMapping(value = "/uusikysym", method = RequestMethod.GET)
 	public String makeKysymys(Model model) {
 		model.addAttribute("question", new Question()); // tyhjä kysymys + kysely dropdown
-		model.addAttribute("queries", queryRepository.findAll());
 		return "kysymysform";
 	}
 

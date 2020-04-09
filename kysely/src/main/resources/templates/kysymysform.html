@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Kysymysform</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Kysymysform</title>
 </head>
 <body>
 <h1>Kysymys</h1>
-<div>
-<form th:object="${question}" th:action="@{/talkysym}" action="#" method="post"> 
-<label for="question">Kysymys</label>
-<input type="text" th:field="${question.question}" /> 
-<div style="clear: both; display: block; height: 10px;"></div>
-<div style="clear: both; display: block; height: 10px;"></div>
-<input type="submit" value="Save"></input>
+
+<form th:object="${question}" th:action="@{/talkysym}" action="#" method="post">
+    <input type="text" th:field="${question.questionString}"/>
+    <input type="submit" value="Save"/>
 </form>
-</div>
+
 </body>
 </html>

@@ -17,7 +17,7 @@
 
 		<tr th:each="question : ${questions}">	
 			<td th:text="${question.questionId}">id</td>
-			<td th:text="${question.question}">question</td>
+			<td th:text="${question.questionString}">question</td>
 			<!-- <td th:text="${book.category.name}">category</td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/deletebook/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
 			<td sec:authorize="hasAuthority('ADMIN')"><a th:href="@{/editbook/{id}(id=${book.id})}"  class="btn btn-danger">Edit</a></td> -->

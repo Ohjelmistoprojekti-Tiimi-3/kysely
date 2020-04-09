@@ -11,8 +11,8 @@ public class Question {
     @Column(name = "questionId")
     private Long questionId;
 
-    @Column(name = "question")
-    private String question;
+    @Column(name = "questionString")
+    private String questionString;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Query query;
@@ -20,16 +20,16 @@ public class Question {
     @OneToMany
     private List<Answer> answer;
     
-    public Question(String question) {
+    public Question(String questionString) {
 		super();
-		this.question = question;
+		this.questionString = questionString;
 	}
 
     public Question() {
     }
 
 	public Question(String question, Query query, Answer answer) {
-        this.question = question;
+        this.questionString = question;
     }
 
     public Long getQuestionId() {
@@ -40,12 +40,12 @@ public class Question {
 		this.questionId = questionId;
 	}
 
-	public String getQuestion() {
-        return question;
+    public String getQuestionString() {
+        return questionString;
     }
 
-    public void setQuestion(String question) {
-        this.question = question;
+    public void setQuestionString(String questionString) {
+        this.questionString = questionString;
     }
 
     public Query getQuery() {
@@ -68,7 +68,7 @@ public class Question {
     public String toString() {
         return "Question{" +
                 "questionId=" + questionId +
-                ", question='" + question + '\'' +
+                ", question='" + questionString + '\'' +
                 ", query=" + query +
                 ", answer=" + answer +
                 '}';
