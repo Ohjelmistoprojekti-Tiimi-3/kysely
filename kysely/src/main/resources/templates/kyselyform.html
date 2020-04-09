@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta  http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Kyselyform</title>
+</head>
+<body>
+<h1>Kysely</h1>
+<!-- <form th:object="${question}" th:action="@{/talkysym}" action="#" method="post"> -->
+<!--    <input type="text" th:field="${question.questionString}"/>  -->
+<form th:object="${query}" th:action="@{/talkysel}" action="#" method="post"></form>
+<input type="text" th:field="${query.}" />
+<input type="submit" value="Save"/>
+</body>
+</html>
