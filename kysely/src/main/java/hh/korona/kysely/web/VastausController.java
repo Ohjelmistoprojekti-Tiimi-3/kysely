@@ -16,15 +16,13 @@ public class VastausController {
     
  // Tallennetaan kyselyn vastaukset
 	
- 	  @RequestMapping(value = "/talvastaus", method = RequestMethod.POST)
- 	    public String tallennaVastaus(@ModelAttribute Answer answer, Model model){
- 	        
- 		  answerRepository.save(answer);
- 		  model.addAttribute("answer",answer);
- 	      System.out.println(answer.toString());
- 	      
- 	      return "redirect:/tulokset.html"; //VAIHDA TÄMÄ
- 	    }  
+	  @RequestMapping(value = "/talvastaus", method = RequestMethod.POST)
+	    public String tallennaVastaus(@ModelAttribute Answer answer, Model model){
+	        answerRepository.save(answer);
+	        
+	        return "null";
+	    }  
+ 
 
 
 }

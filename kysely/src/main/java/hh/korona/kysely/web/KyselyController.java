@@ -9,17 +9,14 @@ import hh.korona.kysely.repository.QueryRepository;
 import hh.korona.kysely.repository.QuestionRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 
-import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -55,13 +52,6 @@ public class KyselyController {
         return "kyselylista";
     }
 
-    @RequestMapping(value = "/kysymykset")
-    public String getQuestions(Model model) {
-        List<Question> questions = (List<Question>) questionRepository.findAll();
-        model.addAttribute("questions", questions);
-        return "kysymyslista";
-    }
-
     // Tyhjä kysely lomake
     //@PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/uusikysel", method = RequestMethod.GET)
@@ -70,7 +60,6 @@ public class KyselyController {
         return "kyselyform";
     }
 
-
     //@PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/talkysel", method = RequestMethod.POST)
     public String saveKysely(@ModelAttribute Query query) {
@@ -78,16 +67,6 @@ public class KyselyController {
         queryRepository.save(query);
         return "redirect:/kyselyt";
     }
-
-
-	// Tyhjä kysely lomake
-	//@PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping(value = "/uusikysymys", method = RequestMethod.GET)
-	public String uusiKysymys(Model model) {
-		model.addAttribute("newQuery", new Query()); // tyhjä kysymys + kysely dropdown
-		model.addAttribute("querylist", queryRepository.findAll());
-		return "kyselyform";
-	}
 
 	// lomakkeen tietojen talletus
 	//@PreAuthorize("hasAuthority('ADMIN')")
@@ -99,37 +78,6 @@ public class KyselyController {
 		System.out.println(query.toString());
 		return "kyselykysymysform";
 	}
-
-
-
-	// Tallennetaan kyselyn vastaukset
-	
-	  @RequestMapping(value = "/talvastaus", method = RequestMethod.POST)
-	    public String tallennaVastaus(@ModelAttribute Answer answer, Model model){
-	        answerRepository.save(answer);
-	        
-	        return "null";
-	    }  
-
-    @RequestMapping(value = "/uusikysym", method = RequestMethod.GET)
-    public String makeKysymys(Model model) {
-        model.addAttribute("question", new Question()); // tyhjä kysymys + kysely dropdown
-        model.addAttribute("querylist", queryRepository.findAll());
-        return "kysymysform";
-    }
-
-    // kirja lomakkeen tietojen talletus
-    //@PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value = "/talkysym", method = RequestMethod.POST)
-    public String saveKysymys(@ModelAttribute Question question) {
-        // talletetaan yhden kirjan tiedot tietokantaan
-        System.out.println(question);
-        questionRepository.save(question);
-        System.out.println(question + "ENNEN REDIRECT");
-
-        return "redirect:/kysymykset";
-    }
-
 
 
     // kirja lomakkeen tietojen talletus
