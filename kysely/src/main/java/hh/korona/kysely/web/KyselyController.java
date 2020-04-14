@@ -70,9 +70,7 @@ public class KyselyController {
         return "kyselyform";
     }
 
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
+
     //@PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/talkysel", method = RequestMethod.POST)
     public String saveKysely(@ModelAttribute Query query) {
@@ -81,24 +79,6 @@ public class KyselyController {
         return "redirect:/kyselyt";
     }
 
-    // Tyhjä kysely lomake
-    //@PreAuthorize("hasAuthority('ADMIN')")
-<<<<<<< Updated upstream
-	@RequestMapping(value = "/uusikysym", method = RequestMethod.GET)
-	public String makeKysymys(Model model) {
-		model.addAttribute("question", new Question()); // tyhjä kysymys + kysely dropdown
-		model.addAttribute("querylist", queryRepository.findAll());
-		return "kysymysform";
-	}
-
-	// lomakkeen tietojen talletus
-    //@PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping(value = "/talkysym", method = RequestMethod.POST)
-	public String saveKysymys(@ModelAttribute Question question) {
-		// talletetaan yhden kirjan tiedot tietokantaan
-		questionRepository.save(question);
-		return "redirect:/kysymykset";
-	}
 
 	// Tyhjä kysely lomake
 	//@PreAuthorize("hasAuthority('ADMIN')")
@@ -121,17 +101,6 @@ public class KyselyController {
 	}
 
 
-	// lomakkeen tietojen talletus
-	//@PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping(value = "/olemassaolevakysely", method = RequestMethod.POST)
-	public String useExistingQuery(@ModelAttribute ("query") Query query, Model model) {
-		// talletetaan yhden kirjan tiedot tietokantaan
-
-		System.out.println(query.toString());
-		model.addAttribute("query",query);
-
-		return "kyselykysymysform";
-	}
 
 	// Tallennetaan kyselyn vastaukset
 	
@@ -139,9 +108,9 @@ public class KyselyController {
 	    public String tallennaVastaus(@ModelAttribute Answer answer, Model model){
 	        answerRepository.save(answer);
 	        
-	        return //TULOKSET.HTML;
+	        return "null";
 	    }  
-=======
+
     @RequestMapping(value = "/uusikysym", method = RequestMethod.GET)
     public String makeKysymys(Model model) {
         model.addAttribute("question", new Question()); // tyhjä kysymys + kysely dropdown
@@ -162,26 +131,6 @@ public class KyselyController {
     }
 
 
-    // Tyhjä kysely lomake
-    //@PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value = "/uusikysymys", method = RequestMethod.GET)
-    public String uusiKysymys(Model model) {
-        model.addAttribute("newQuery", new Query()); // tyhjä kysymys + kysely dropdown
-        model.addAttribute("querylist", queryRepository.findAll());
-        return "kyselyform";
-    }
-
-    // kirja lomakkeen tietojen talletus
-    //@PreAuthorize("hasAuthority('ADMIN')")
-    @RequestMapping(value = "/tallennauusikysely", method = RequestMethod.POST)
-    public String tallennaKysely(@ModelAttribute Query query, Model model) {
-        // talletetaan yhden kirjan tiedot tietokantaan
-        queryRepository.save(query);
-        model.addAttribute("query", query);
-        System.out.println(query.toString());
-        return "kyselykysymysform";
-    }
-
 
     // kirja lomakkeen tietojen talletus
     //@PreAuthorize("hasAuthority('ADMIN')")
@@ -200,7 +149,5 @@ public class KyselyController {
 
         return "kyselykysymysform";
     }
->>>>>>> Stashed changes
-
 
 }
