@@ -80,7 +80,7 @@ public class Query {
     public String toString() {
         return "Query{" +
                 "queryId=" + queryId +
-                "title=" + title +
+                ", title=" + title +
                 ", date=" + date +
                 ", user=" + user +
                 ", questions=" + questions +
