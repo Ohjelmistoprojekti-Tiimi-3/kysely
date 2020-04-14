@@ -1,16 +1,19 @@
 package hh.korona.kysely.web;
 
 
-import hh.korona.kysely.model.Query;
-import hh.korona.kysely.model.Question;
-import hh.korona.kysely.repository.QueryRepository;
-import hh.korona.kysely.repository.QuestionRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.List;
+import hh.korona.kysely.model.Query;
+import hh.korona.kysely.model.Question;
+import hh.korona.kysely.repository.QueryRepository;
+import hh.korona.kysely.repository.QuestionRepository;
+@CrossOrigin(origins = "http://localhost:3000")
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
