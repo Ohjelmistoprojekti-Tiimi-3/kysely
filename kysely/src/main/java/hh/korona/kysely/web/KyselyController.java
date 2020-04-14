@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-
-
 import java.util.List;
 
 @Controller
@@ -78,6 +76,42 @@ public class KyselyController {
 		System.out.println(query.toString());
 		return "kyselykysymysform";
 	}
+
+
+
+	// Tallennetaan kyselyn vastaukset
+	
+	  @RequestMapping(value = "/talvastaus", method = RequestMethod.POST)
+	    public String tallennaVastaus(@ModelAttribute Answer answer, Model model){
+	        answerRepository.save(answer);
+	        
+	        return "null";
+	    }  
+
+    @RequestMapping(value = "/uusikysym", method = RequestMethod.GET)
+    public String makeKysymys(Model model) {
+        model.addAttribute("question", new Question()); // tyhjä kysymys + kysely dropdown
+        model.addAttribute("querylist", queryRepository.findAll());
+        return "kysymysform";
+    }
+
+    // kirja lomakkeen tietojen talletus
+    //@PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value = "/talkysym", method = RequestMethod.POST)
+    public String saveKysymys(@ModelAttribute ("newQuestion") Question question) {
+        // talletetaan yhden kirjan tiedot tietokantaan
+
+
+        System.out.println(question.getQuery().getQueryId());
+
+        Query query = queryRepository.findOneByQueryId(question.getQuery().getQueryId());
+        question.setQuery(query);
+        questionRepository.save(question);
+        System.out.println(question + "ENNEN REDIRECT");
+
+        return "redirect:/kysymykset";
+    }
+
 
 
     // kirja lomakkeen tietojen talletus
