@@ -25,6 +25,10 @@ public class Question {
 		this.questionString = questionString;
 	}
 
+    public Question(Query query) {
+        this.query = query;
+    }
+
     public Question() {
     }
 
