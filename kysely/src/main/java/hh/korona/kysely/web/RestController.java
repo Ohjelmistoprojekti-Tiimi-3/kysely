@@ -1,8 +1,10 @@
 package hh.korona.kysely.web;
 
 
+import hh.korona.kysely.model.Answer;
 import hh.korona.kysely.model.Query;
 import hh.korona.kysely.model.Question;
+import hh.korona.kysely.repository.AnswerRepository;
 import hh.korona.kysely.repository.QueryRepository;
 import hh.korona.kysely.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +22,9 @@ public class RestController {
 
     @Autowired
     QuestionRepository questionRepository;
+    
+    @Autowired
+    AnswerRepository answerRepository;
 
 
     @RequestMapping(value = "/api/kyselyt", method = RequestMethod.GET)
@@ -32,6 +37,12 @@ public class RestController {
     public @ResponseBody
     List<Question> returnRestQuestionList() {
         return (List<Question>) questionRepository.findAll();
+    }
+    
+    @RequestMapping(value = "/api/vastaukset", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Answer> returnRestAnswerList() {
+        return (List<Answer>) answerRepository.findAll();
     }
 
 

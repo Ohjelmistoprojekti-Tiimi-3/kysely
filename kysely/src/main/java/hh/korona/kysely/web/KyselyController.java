@@ -1,8 +1,10 @@
 package hh.korona.kysely.web;
 
 
+import hh.korona.kysely.model.Answer;
 import hh.korona.kysely.model.Query;
 import hh.korona.kysely.model.Question;
+import hh.korona.kysely.repository.AnswerRepository;
 import hh.korona.kysely.repository.QueryRepository;
 import hh.korona.kysely.repository.QuestionRepository;
 
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+
 import javax.validation.Valid;
 import java.util.List;
 
@@ -27,6 +30,9 @@ public class KyselyController {
 
     @Autowired
     QueryRepository queryRepository;
+    
+    @Autowired
+    AnswerRepository answerRepository;
 
 
     @RequestMapping(value = "/testi")
@@ -64,7 +70,7 @@ public class KyselyController {
 		return "kyselyform";
 	}
 
-	// kirja lomakkeen tietojen talletus
+	// lomakkeen tietojen talletus
     //@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/talkysel", method = RequestMethod.POST)
 	public String saveKysely(@ModelAttribute Query query) {
@@ -82,7 +88,7 @@ public class KyselyController {
 		return "kysymysform";
 	}
 
-	// kirja lomakkeen tietojen talletus
+	// lomakkeen tietojen talletus
     //@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/talkysym", method = RequestMethod.POST)
 	public String saveKysymys(@ModelAttribute Question question) {
@@ -100,7 +106,7 @@ public class KyselyController {
 		return "kyselyform";
 	}
 
-	// kirja lomakkeen tietojen talletus
+	// lomakkeen tietojen talletus
 	//@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/tallennauusikysely", method = RequestMethod.POST)
 	public String tallennaKysely(@ModelAttribute Query query,Model model) {
@@ -112,7 +118,7 @@ public class KyselyController {
 	}
 
 
-	// kirja lomakkeen tietojen talletus
+	// lomakkeen tietojen talletus
 	//@PreAuthorize("hasAuthority('ADMIN')")
 	@RequestMapping(value = "/olemassaolevakysely", method = RequestMethod.POST)
 	public String useExistingQuery(@ModelAttribute ("query") Query query, Model model) {
@@ -124,6 +130,14 @@ public class KyselyController {
 		return "kyselykysymysform";
 	}
 
+	// Tallennetaan kyselyn vastaukset
+	
+	  @RequestMapping(value = "/talvastaus", method = RequestMethod.POST)
+	    public String tallennaVastaus(@ModelAttribute Answer answer, Model model){
+	        answerRepository.save(answer);
+	        
+	        return //TULOKSET.HTML;
+	    }  
 
 
 }
