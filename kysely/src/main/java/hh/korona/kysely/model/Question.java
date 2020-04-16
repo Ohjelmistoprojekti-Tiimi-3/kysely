@@ -1,5 +1,8 @@
 package hh.korona.kysely.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -14,7 +17,9 @@ public class Question {
     @Column(name = "questionString")
     private String questionString;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
+    @JoinColumn(name = "query_id")
+    @JsonBackReference
     private Query query;
 
     @OneToMany

@@ -1,3 +1,9 @@
+1 Sprintin kuva kaavioista oneDrivessa
+https://haagahelia-my.sharepoint.com/personal/bgh311_myy_haaga-helia_fi/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fsprint1%5Fkuva%5Fprojektikaaviot%2EPNG&parent=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti
+
+0 Sprintin kuva kaavioista oneDrivessa
+https://haagahelia-my.sharepoint.com/personal/bgh311_myy_haaga-helia_fi/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fsprint0%5Fkuva%5Fprojektikaaviot%20%282%29%2EPNG&parent=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti
+
 Kuva projektin kaavioista oneDrivessa versio 2
 https://haagahelia-my.sharepoint.com/personal/bgh311_myy_haaga-helia_fi/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fkuva%5Fprojektin%5Fkaavioista%2EPNG&parent=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti
 

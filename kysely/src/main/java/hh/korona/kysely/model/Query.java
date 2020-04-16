@@ -1,5 +1,9 @@
 package hh.korona.kysely.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -21,7 +25,8 @@ public class Query {
     @ManyToOne
     private User user;
 
-    @OneToMany
+    @OneToMany(mappedBy = "query")
+    @JsonManagedReference
     private List<Question> questions;
 
 
@@ -83,7 +88,6 @@ public class Query {
                 ", title=" + title +
                 ", date=" + date +
                 ", user=" + user +
-                ", questions=" + questions +
                 '}';
     }
 }
