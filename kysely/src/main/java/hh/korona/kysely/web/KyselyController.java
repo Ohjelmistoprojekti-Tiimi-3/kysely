@@ -88,12 +88,6 @@ public class KyselyController {
 	        return "null";
 	    }  
 
-    @RequestMapping(value = "/uusikysym", method = RequestMethod.GET)
-    public String makeKysymys(Model model) {
-        model.addAttribute("question", new Question()); // tyhjä kysymys + kysely dropdown
-        model.addAttribute("querylist", queryRepository.findAll());
-        return "kysymysform";
-    }
 
     // kirja lomakkeen tietojen talletus
     //@PreAuthorize("hasAuthority('ADMIN')")
@@ -101,13 +95,10 @@ public class KyselyController {
     public String saveKysymys(@ModelAttribute ("newQuestion") Question question) {
         // talletetaan yhden kirjan tiedot tietokantaan
 
-
         System.out.println(question.getQuery().getQueryId());
-
         Query query = queryRepository.findOneByQueryId(question.getQuery().getQueryId());
         question.setQuery(query);
         questionRepository.save(question);
-        System.out.println(question + "ENNEN REDIRECT");
 
         return "redirect:/kysymykset";
     }
