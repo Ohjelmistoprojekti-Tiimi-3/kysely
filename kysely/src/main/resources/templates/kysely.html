@@ -1,0 +1,27 @@
+	<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+	<title>Kysely lista</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div class="col-md-4">
+		<h1 th:inline="text">Kyselyt</h1>
+	</div>
+
+	<table class="table table-striped">
+		<tr>
+			<th>ID</th>
+			<th>Title</th>
+			<th>Date</th>
+		</tr>
+
+		<tr th:each="query : ${query}">
+			<td th:text="${query.queryId}">id</td>
+			<td th:text="${query.title}">id</td>
+			<td th:text="${query.date}">question</td>
+		</tr>
+	</table>
+
+</body>
+</html>
