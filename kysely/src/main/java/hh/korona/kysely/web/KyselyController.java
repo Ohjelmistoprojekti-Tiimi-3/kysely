@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -28,13 +30,6 @@ public class KyselyController {
     
     @Autowired
     AnswerRepository answerRepository;
-
-
-    @RequestMapping(value = "/testi")
-    @ResponseBody
-    public String getTestString() {
-        return "Hello :)";
-    }
 
 
     @ModelAttribute("query")
@@ -67,14 +62,6 @@ public class KyselyController {
     }
 
 
-	  @RequestMapping(value = "/talvastaus", method = RequestMethod.POST)
-	    public String tallennaVastaus(@ModelAttribute Answer answer, Model model){
-	        answerRepository.save(answer);
-	        
-	        return "null";
-	    }  
-
-
 
     //@PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/talkysym", method = RequestMethod.POST)
@@ -93,9 +80,9 @@ public class KyselyController {
     //@PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/tallennauusikysely", method = RequestMethod.POST)
     public String tallennaKysely(@ModelAttribute Query query,Model model) {
-        // talletetaan yhden kirjan tiedot tietokantaan
+        query.setDate(new Date());
         queryRepository.save(query);
-        model.addAttribute("returnQuery",query);
+        model.addAttribute("returnQuery", query);
         model.addAttribute("newQuestion", new Question(query));
         System.out.println(query.toString());
         return "kyselykysymysform";
