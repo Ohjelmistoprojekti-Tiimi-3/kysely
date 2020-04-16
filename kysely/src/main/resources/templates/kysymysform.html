@@ -8,7 +8,7 @@
 <h1>Kysymys</h1>
 
 <form th:object="${question}" th:action="@{/talkysym}" action="#" method="post">
-    <input type="text" th:field="${question.questionString}"/>
+    <textarea rows="5" cols="25" type="text" th:field="${question.questionString}"/>
 
     <label for="querylist">Kyselyt</label>
     <select id="querylist" th:field="*{query}" class="form-control">
