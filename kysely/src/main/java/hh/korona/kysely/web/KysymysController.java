@@ -3,6 +3,7 @@ package hh.korona.kysely.web;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,7 +13,7 @@ import hh.korona.kysely.model.Query;
 import hh.korona.kysely.model.Question;
 import hh.korona.kysely.repository.QueryRepository;
 import hh.korona.kysely.repository.QuestionRepository;
-
+@Controller
 public class KysymysController {
 	
 	   @Autowired
