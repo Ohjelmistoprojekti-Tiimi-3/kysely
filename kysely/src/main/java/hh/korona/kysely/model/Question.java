@@ -22,7 +22,8 @@ public class Question {
     @JsonBackReference
     private Query query;
 
-    @OneToMany
+    @OneToMany(mappedBy = "question")
+    @JsonManagedReference
     private List<Answer> answer;
     
     public Question(String questionString) {

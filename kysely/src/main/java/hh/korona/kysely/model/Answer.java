@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class Answer {
@@ -26,7 +27,9 @@ public class Answer {
     private Date date;
     
     @ManyToOne
-	    private Question question;
+	@JoinColumn(name = "question_id")
+	@JsonBackReference
+	private Question question;
 
 	public Answer() {
 		super();
