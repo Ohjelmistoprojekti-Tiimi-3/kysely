@@ -14,7 +14,8 @@ public class Question {
     @Column(name = "questionId")
     private Long questionId;
 
-    @Column(name = "questionString")
+    @Column(name = "questionString", length = 2500)
+
     private String questionString;
 
     @ManyToOne
