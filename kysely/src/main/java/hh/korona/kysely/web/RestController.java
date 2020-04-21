@@ -32,7 +32,7 @@ public class RestController {
     List<Query> returnRestQueryList() {
         return (List<Query>) queryRepository.findAll();
     }
-    
+
     @RequestMapping(value = "/api/kyselyt/{id}", method = RequestMethod.GET)
     public @ResponseBody
     Query returnRestQueryById(@PathVariable("id") Long queryId) {
@@ -47,12 +47,14 @@ public class RestController {
 
     @RequestMapping(value = "/api/tallennavastaus/{questionid}", method = RequestMethod.PUT)
     public @ResponseBody
-    Answer saveAnswerRest(@RequestBody List<Answer> answer,@PathVariable ("questionid") Long questionId) {
+    Answer saveAnswerRest(@RequestBody Answer answer, @PathVariable("questionid") Long questionId) {
+
         System.out.println(questionId);
         Question question = questionRepository.findByQuestionId(questionId);
-        question.setAnswer(answer);
-        questionRepository.save(question);
-        return null;
+
+            answer.setQuestion(question);
+
+        return answerRepository.save(answer);
     }
 
 }

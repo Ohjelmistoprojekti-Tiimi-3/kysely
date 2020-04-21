@@ -58,7 +58,7 @@ public class KyselyController {
     @RequestMapping(value = "/uusikysel", method = RequestMethod.GET)
     public String makeKysely(Model model) {
         model.addAttribute("query", new Query()); // tyhjä query
-        return "kyselyform";
+        return "kyselynluontiform";
     }
 
     //@PreAuthorize("hasAuthority('ADMIN')")
