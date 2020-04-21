@@ -46,11 +46,18 @@ public class KyselyApplication {
 
 
             //String question, Query query, Answer answer
-            Question question1 = new Question("Oletko tyytyväinen kurssilla tekemääsi työnlaatuun ja työmäärään?",query3, null);
-            Question question2 = new Question("Saavutitko tavoitteet, jotka asetit itsellesi kurssin alussa?",query3, null);
-            Question question3 = new Question("Saitko opettajalta tarpeeksi apua, kun sitä tarvitsit?",query3, null);
-            Question question4 = new Question("Minkälaisena koit opetuksen selkeyden ja ulosannin?",query3, null);
-            Question question5 = new Question("Miten kurssin sisältöä voisi kehittää?", query3, null);
+            Question question1 = new Question("Oletko tyytyväinen kurssilla tekemääsi työnlaatuun ja työmäärään?",null, null);
+            Question question2 = new Question("Saavutitko tavoitteet, jotka asetit itsellesi kurssin alussa?",null, null);
+            Question question3 = new Question("Saitko opettajalta tarpeeksi apua, kun sitä tarvitsit?",null, null);
+            Question question4 = new Question("Minkälaisena koit opetuksen selkeyden ja ulosannin?",null, null);
+            Question question5 = new Question("Miten kurssin sisältöä voisi kehittää?", null, null);
+
+            question1.setQuery(query3);
+            question2.setQuery(query3);
+            question3.setQuery(query3);
+            question4.setQuery(query3);
+            question5.setQuery(query3);
+
 
             questionRepository.save(question1);
             questionRepository.save(question2);
