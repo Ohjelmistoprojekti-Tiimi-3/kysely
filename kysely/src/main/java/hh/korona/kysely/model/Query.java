@@ -25,7 +25,7 @@ public class Query {
     @ManyToOne
     private User user;
 
-    @OneToMany(mappedBy = "query")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "query") // CASCADE TESTI
     @JsonManagedReference
     private List<Question> questions;
 

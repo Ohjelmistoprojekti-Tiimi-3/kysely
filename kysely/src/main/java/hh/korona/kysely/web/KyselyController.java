@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,13 +32,6 @@ public class KyselyController {
     
     @Autowired
     AnswerRepository answerRepository;
-
-
-    @RequestMapping(value = "/testi")
-    @ResponseBody
-    public String getTestString() {
-        return "Hello :)";
-    }
 
 
     @ModelAttribute("query")
@@ -74,69 +69,43 @@ public class KyselyController {
         return "redirect:/kyselyt";
     }
 
-	// lomakkeen tietojen talletus
-	//@PreAuthorize("hasAuthority('ADMIN')")
-	@RequestMapping(value = "/tallennauusikysely", method = RequestMethod.POST)
-	public String tallennaKysely(@ModelAttribute Query query,Model model) {
-		// talletetaan yhden kirjan tiedot tietokantaan
-		queryRepository.save(query);
-		model.addAttribute("query",query);
-		System.out.println(query.toString());
-		return "kyselykysymysform";
-	}
 
 
-
-	// Tallennetaan kyselyn vastaukset
-	
-	  @RequestMapping(value = "/talvastaus", method = RequestMethod.POST)
-	    public String tallennaVastaus(@ModelAttribute Answer answer, Model model){
-	        answerRepository.save(answer);
-	        
-	        return "null";
-	    }  
-
-    @RequestMapping(value = "/uusikysym", method = RequestMethod.GET)
-    public String makeKysymys(Model model) {
-        model.addAttribute("question", new Question()); // tyhjä kysymys + kysely dropdown
-        model.addAttribute("querylist", queryRepository.findAll());
-        return "kysymysform";
-    }
-
-    // kirja lomakkeen tietojen talletus
     //@PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/talkysym", method = RequestMethod.POST)
     public String saveKysymys(@ModelAttribute ("newQuestion") Question question) {
-        // talletetaan yhden kirjan tiedot tietokantaan
-
-
         System.out.println(question.getQuery().getQueryId());
-
         Query query = queryRepository.findOneByQueryId(question.getQuery().getQueryId());
         question.setQuery(query);
         questionRepository.save(question);
-        System.out.println(question + "ENNEN REDIRECT");
-
         return "redirect:/kysymykset";
     }
 
 
+    //kyselyform.html endpoit uuden kyselyn luontiin
+    //tallennetaan uusi query ja palautetaan uusi tyhjä Question olio mihin on liitetty uusi Query olio
 
-    // kirja lomakkeen tietojen talletus
+    //@PreAuthorize("hasAuthority('ADMIN')")
+    @RequestMapping(value = "/tallennauusikysely", method = RequestMethod.POST)
+    public String tallennaKysely(@ModelAttribute Query query,Model model) {
+        query.setDate(new Date());
+        queryRepository.save(query);
+        model.addAttribute("returnQuery", query);
+        model.addAttribute("newQuestion", new Question(query));
+        System.out.println(query.toString());
+        return "kyselykysymysform";
+    }
+
+
+    //kyselyform.html form tulee tänne jos käytetään olemassa olevaa kyselyä
+    //modelattribute palauttaa queryn jossa vain id mutta ei muuta tietoa, haetaan query1 oikea query query idn perusteella
     //@PreAuthorize("hasAuthority('ADMIN')")
     @RequestMapping(value = "/olemassaolevakysely", method = RequestMethod.POST)
     public String useExistingQuery(@ModelAttribute("query") Query query, Model model) {
-        // talletetaan yhden kirjan tiedot tietokantaan
-
-
         Query query1 = queryRepository.findOneByQueryId(query.getQueryId());
-
         System.out.println(query1);
         model.addAttribute("returnQuery", query1);
         model.addAttribute("newQuestion", new Question(query1));
-
-        System.out.println(model);
-
         return "kyselykysymysform";
     }
 

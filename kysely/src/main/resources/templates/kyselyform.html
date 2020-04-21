@@ -8,7 +8,7 @@
 <h1>Käytetäänkö olemassa olevaa kyselyä vai luodaanko uusi?</h1>
 
 <form th:action="@{/olemassaolevakysely}" action="#" method="post">
-        <select  id="querylist" class="form-control" th:field="${query.queryId}">
+        <select  id="querylist" class="form-control" th:field="${newQuery.queryId}">
             <option th:each="query: ${querylist}"
                     th:value="${query.queryId}"
                     th:text="${query.title}">

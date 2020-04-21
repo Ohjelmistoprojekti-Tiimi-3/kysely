@@ -3,17 +3,17 @@ package hh.korona.kysely.web;
 
 import java.util.List;
 
+import hh.korona.kysely.model.Answer;
+import hh.korona.kysely.repository.AnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import hh.korona.kysely.model.Query;
 import hh.korona.kysely.model.Question;
 import hh.korona.kysely.repository.QueryRepository;
 import hh.korona.kysely.repository.QuestionRepository;
-@CrossOrigin(origins = "http://localhost:3000")
+
+@CrossOrigin
 
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
@@ -23,6 +23,9 @@ public class RestController {
 
     @Autowired
     QuestionRepository questionRepository;
+
+    @Autowired
+    AnswerRepository answerRepository;
 
 
     @RequestMapping(value = "/api/kyselyt", method = RequestMethod.GET)
@@ -37,5 +40,10 @@ public class RestController {
         return (List<Question>) questionRepository.findAll();
     }
 
+    @RequestMapping(value = "/api/tallennavastaus", method = RequestMethod.POST)
+    public @ResponseBody
+    Query saveAnswerRest(@RequestBody Query query) {
+        return queryRepository.save(query);
+    }
 
 }

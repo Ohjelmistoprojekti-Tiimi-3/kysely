@@ -9,5 +9,6 @@ public interface QueryRepository extends CrudRepository<Query, Long> {
 
    List<Query> findByQueryId(Long id);
    Query findOneByQueryId(Long id);
+   List<Query> findByTitle(String title);
 
 }

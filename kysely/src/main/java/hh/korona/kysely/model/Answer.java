@@ -2,7 +2,7 @@ package hh.korona.kysely.model;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
+//import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 @Entity
 public class Answer {
 	@Id
@@ -19,22 +20,23 @@ public class Answer {
     @Column(name = "answer_id")
     private Long id;
 	
-	@Column(name = "answer", nullable = false)
+	@Column(name = "answer", nullable = false) 
     private String answer;
 
     @Column(name = "date", nullable = false)
     private Date date;
     
     @ManyToOne
-	    private Question question;
+	@JoinColumn(name = "question_id")
+	@JsonBackReference
+	private Question question;
 
 	public Answer() {
 		super();
 	}
 
-	public Answer(Long id, String answer, Date date, Question question) {
+	public Answer(String answer, Date date, Question question) {
 		super();
-		this.id = id;
 		this.answer = answer;
 		this.date = date;
 		this.question = question;
