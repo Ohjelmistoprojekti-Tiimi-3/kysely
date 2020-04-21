@@ -1,5 +1,6 @@
 package hh.korona.kysely;
 
+import hh.korona.kysely.model.Answer;
 import hh.korona.kysely.model.Query;
 import hh.korona.kysely.repository.AnswerRepository;
 import hh.korona.kysely.repository.QueryRepository;
@@ -52,18 +53,24 @@ public class KyselyApplication {
             Question question4 = new Question("Minkälaisena koit opetuksen selkeyden ja ulosannin?",null, null);
             Question question5 = new Question("Miten kurssin sisältöä voisi kehittää?", null, null);
 
+
+
+
             question1.setQuery(query3);
             question2.setQuery(query3);
             question3.setQuery(query3);
             question4.setQuery(query3);
             question5.setQuery(query3);
 
-
             questionRepository.save(question1);
             questionRepository.save(question2);
             questionRepository.save(question3);
             questionRepository.save(question4);
             questionRepository.save(question5);
+
+            Answer answer1 = new Answer("Vastaus 1", new Date(),null);
+            answer1.setQuestion(question1);
+            answerRepository.save(answer1);
 
             log.info("fetch questions");
             for (Question question : questionRepository.findAll()) {
