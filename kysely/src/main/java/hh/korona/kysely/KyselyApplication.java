@@ -51,7 +51,7 @@ public class KyselyApplication {
             Question question2 = new Question("Saavutitko tavoitteet, jotka asetit itsellesi kurssin alussa?",query3, null);
             Question question3 = new Question("Saitko opettajalta tarpeeksi apua, kun sitä tarvitsit?",query3, null);
             Question question4 = new Question("Minkälaisena koit opetuksen selkeyden ja ulosannin?",query3, null);
-            Question question5 = new Question("Miten kurssin sisältöä voisi kehittää?");
+            Question question5 = new Question("Miten kurssin sisältöä voisi kehittää?", query3, null);
             
             questionRepository.save(question1);
             questionRepository.save(question2);
