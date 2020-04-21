@@ -14,7 +14,6 @@ import hh.korona.kysely.repository.QueryRepository;
 import hh.korona.kysely.repository.QuestionRepository;
 
 @CrossOrigin
-
 @org.springframework.web.bind.annotation.RestController
 public class RestController {
 
@@ -40,10 +39,14 @@ public class RestController {
         return (List<Question>) questionRepository.findAll();
     }
 
-    @RequestMapping(value = "/api/tallennavastaus", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/tallennavastaus/{questionid}", method = RequestMethod.PUT)
     public @ResponseBody
-    Query saveAnswerRest(@RequestBody Query query) {
-        return queryRepository.save(query);
+    Answer saveAnswerRest(@RequestBody List<Answer> answer,@PathVariable ("questionid") Long questionId) {
+        System.out.println(questionId);
+        Question question = questionRepository.findByQuestionId(questionId);
+        question.setAnswer(answer);
+        questionRepository.save(question);
+        return null;
     }
 
 }

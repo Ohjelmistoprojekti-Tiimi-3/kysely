@@ -22,7 +22,7 @@ public class Question {
     @JsonBackReference
     private Query query;
 
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "question")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "question",fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<Answer> answer;
     

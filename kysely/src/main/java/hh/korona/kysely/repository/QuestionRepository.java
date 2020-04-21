@@ -10,6 +10,6 @@ import java.util.List;
 public interface QuestionRepository extends CrudRepository<Question, Long> {
 	
 	List<Question> findByQuery(Query query);
-	List<Question> findByQuestionId(Long questionId);
-	
+	Question findByQuestionId(Long questionId);
+
 }
