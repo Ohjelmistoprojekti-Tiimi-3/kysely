@@ -32,6 +32,12 @@ public class RestController {
     List<Query> returnRestQueryList() {
         return (List<Query>) queryRepository.findAll();
     }
+    
+    @RequestMapping(value = "/api/kyselyt/{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    Query returnRestQueryById(@PathVariable("id") Long queryId) {
+        return (Query) queryRepository.findById(queryId).get();
+    }
 
     @RequestMapping(value = "/api/kysymykset", method = RequestMethod.GET)
     public @ResponseBody
