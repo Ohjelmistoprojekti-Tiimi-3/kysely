@@ -2,21 +2,15 @@ package hh.korona.kysely;
 
 import hh.korona.kysely.model.Answer;
 import hh.korona.kysely.model.Query;
-import hh.korona.kysely.repository.AnswerRepository;
-import hh.korona.kysely.repository.QueryRepository;
-import hh.korona.kysely.repository.UserRepository;
+import hh.korona.kysely.repository.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
 import hh.korona.kysely.model.Question;
-import hh.korona.kysely.repository.QuestionRepository;
-
 import java.util.Date;
-import java.util.List;
 
 @SpringBootApplication
 public class KyselyApplication {
@@ -68,9 +62,14 @@ public class KyselyApplication {
             questionRepository.save(question4);
             questionRepository.save(question5);
 
+
+
+
             Answer answer1 = new Answer("Vastaus 1", new Date(),null);
             answer1.setQuestion(question1);
             answerRepository.save(answer1);
+
+
 
             log.info("fetch questions");
             for (Question question : questionRepository.findAll()) {
