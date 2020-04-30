@@ -54,11 +54,9 @@ public class KyselyApplication {
             Question question5 = new Question("Miten kurssin sisältöä voisi kehittää?", null, null);
 
 
-<<<<<<< HEAD
-=======
 
             //Asetetaan kysymykset kyselyyn
->>>>>>> 2711b369da68ce357dceaef5c98865e2886b7d17
+
             question1.setQuery(query3);
             question2.setQuery(query3);
             question3.setQuery(query3);
@@ -71,12 +69,11 @@ public class KyselyApplication {
             questionRepository.save(question4);
             questionRepository.save(question5);
 
-<<<<<<< HEAD
             //String answer, Date date, Question question
             Answer answer1 = new Answer("Vastaus 1", new Date(),null);
             answer1.setQuestion(question1);
             answerRepository.save(answer1);
-=======
+
 
             //Oletko tyytyväinen kurssilla tekemääsi työnlaatuun ja työmäärään?
             Answer q1a1 = new Answer("Kyllä olen", new Date(), null);
@@ -172,9 +169,6 @@ public class KyselyApplication {
             answerRepository.save(q5a3);
             answerRepository.save(q5a4);
             answerRepository.save(q5a5);
-
-
->>>>>>> 2711b369da68ce357dceaef5c98865e2886b7d17
 
             log.info("fetch questions");
             for (Question question : questionRepository.findAll()) {
