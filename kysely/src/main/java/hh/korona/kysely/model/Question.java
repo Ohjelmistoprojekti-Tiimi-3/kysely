@@ -22,11 +22,17 @@ public class Question {
     @JoinColumn(name = "query_id")
     @JsonBackReference
     private Query query;
+    
+    @ManyToOne
+    @JoinColumn(name = "questionType_id")
+    @JsonBackReference
+    private QuestionType QuestionType;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "question",fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<Answer> answer;
-    
+
+
     public Question(String questionString) {
 		super();
 		this.questionString = questionString;
@@ -74,6 +80,8 @@ public class Question {
     public void setAnswer(List<Answer> answer) {
         this.answer = answer;
     }
+
+    
 
     @Override
     public String toString() {

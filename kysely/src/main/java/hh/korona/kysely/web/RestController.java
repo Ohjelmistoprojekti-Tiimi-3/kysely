@@ -44,8 +44,15 @@ public class RestController {
     List<Question> returnRestQuestionList() {
         return (List<Question>) questionRepository.findAll();
     }
+    
+    @RequestMapping(value = "/api/kysymys/{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    Question returnOneRestQuestion(@PathVariable("id") Long questionId) {
+        return (Question) questionRepository.findById(questionId).get();
+    }
 
     @RequestMapping(value = "/api/tallennavastaus/{questionid}", method = RequestMethod.PUT)
+    @CrossOrigin
     public @ResponseBody
     Answer saveAnswerRest(@RequestBody Answer answer, @PathVariable("questionid") Long questionId) {
 
