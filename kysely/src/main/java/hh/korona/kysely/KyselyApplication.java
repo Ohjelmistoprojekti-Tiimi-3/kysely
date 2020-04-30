@@ -1,5 +1,6 @@
 package hh.korona.kysely;
 
+import hh.korona.kysely.model.Answer;
 import hh.korona.kysely.model.Query;
 import hh.korona.kysely.repository.AnswerRepository;
 import hh.korona.kysely.repository.QueryRepository;
@@ -58,12 +59,107 @@ public class KyselyApplication {
             question4.setQuery(query3);
             question5.setQuery(query3);
 
-
             questionRepository.save(question1);
             questionRepository.save(question2);
             questionRepository.save(question3);
             questionRepository.save(question4);
             questionRepository.save(question5);
+            
+            //Oletko tyytyväinen kurssilla tekemääsi työnlaatuun ja työmäärään?
+            Answer q1a1 = new Answer("Kyllä olen", new Date(), null);
+            Answer q1a2 = new Answer("En ihan, pikkusen enemmän ois voinnut tehdä.", new Date(), null);
+            Answer q1a3 = new Answer("Joo", new Date(), null);
+            Answer q1a4 = new Answer("Ehkä.", new Date(), null);
+            Answer q1a5 = new Answer("¯\\_(ツ)_/¯", new Date(), null);
+            
+            q1a1.setQuestion(question1);
+            q1a2.setQuestion(question1);
+            q1a3.setQuestion(question1);
+            q1a4.setQuestion(question1);
+            q1a5.setQuestion(question1);
+            
+            answerRepository.save(q1a1);
+            answerRepository.save(q1a2);
+            answerRepository.save(q1a3);
+            answerRepository.save(q1a4);
+            answerRepository.save(q1a5);
+            
+            //Saavutitko tavoitteet, jotka asetit itsellesi kurssin alussa?
+            Answer q2a1 = new Answer("Kyllä.", new Date(), null);
+            Answer q2a2 = new Answer("Melkein.", new Date(), null);
+            Answer q2a3 = new Answer("Jep, ja ylitin reilusti.", new Date(), null);
+            Answer q2a4 = new Answer("En lähelläkään.", new Date(), null);
+            Answer q2a5 = new Answer("¯\\_(ツ)_/¯", new Date(), null);
+            
+            q2a1.setQuestion(question2);
+            q2a2.setQuestion(question2);
+            q2a3.setQuestion(question2);
+            q2a4.setQuestion(question2);
+            q2a5.setQuestion(question2);
+            
+            answerRepository.save(q2a1);
+            answerRepository.save(q2a2);
+            answerRepository.save(q2a3);
+            answerRepository.save(q2a4);
+            answerRepository.save(q2a5);
+            
+            //Saitko opettajalta tarpeeksi apua, kun sitä tarvitsit?
+            Answer q3a1 = new Answer("Enpä tarvinnut yhtään.", new Date(), null);
+            Answer q3a2 = new Answer("Juu.", new Date(), null);
+            Answer q3a3 = new Answer("Kyllä.", new Date(), null);
+            Answer q3a4 = new Answer("En.", new Date(), null);
+            Answer q3a5 = new Answer("¯\\_(ツ)_/¯", new Date(), null);
+            
+            q3a1.setQuestion(question3);
+            q3a2.setQuestion(question3);
+            q3a3.setQuestion(question3);
+            q3a4.setQuestion(question3);
+            q3a5.setQuestion(question3);
+            
+            answerRepository.save(q3a1);
+            answerRepository.save(q3a2);
+            answerRepository.save(q3a3);
+            answerRepository.save(q3a4);
+            answerRepository.save(q3a5);
+            
+            //Minkälaisena koit opetuksen selkeyden ja ulosannin?
+            Answer q4a1 = new Answer("Helppo.", new Date(), null);
+            Answer q4a2 = new Answer("Netti opiskelu teki asiasta hieman vaikeamman, muuten ok.", new Date(), null);
+            Answer q4a3 = new Answer("Sopivana kurssin aiheeseen.", new Date(), null);
+            Answer q4a4 = new Answer("Puutteellinen, ei anna tarpeeks oikeita esimerkkejä.", new Date(), null);
+            Answer q4a5 = new Answer("¯\\_(ツ)_/¯", new Date(), null);
+            
+            q4a1.setQuestion(question4);
+            q4a2.setQuestion(question4);
+            q4a3.setQuestion(question4);
+            q4a4.setQuestion(question4);
+            q4a5.setQuestion(question4);
+            
+            answerRepository.save(q4a1);
+            answerRepository.save(q4a2);
+            answerRepository.save(q4a3);
+            answerRepository.save(q4a4);
+            answerRepository.save(q4a5);
+            
+            //Miten kurssin sisältöä voisi kehittää?
+            Answer q5a1 = new Answer("Ihan ok nytten.", new Date(), null);
+            Answer q5a2 = new Answer("Sopivammaks etä-opiskeluun.", new Date(), null);
+            Answer q5a3 = new Answer("Eipä tarvitse paljoo kehityst.", new Date(), null);
+            Answer q5a4 = new Answer("Enemmän esimerkkejä ja materiaalia.", new Date(), null);
+            Answer q5a5 = new Answer("¯\\_(ツ)_/¯", new Date(), null);
+            
+            q5a1.setQuestion(question5);
+            q5a2.setQuestion(question5);
+            q5a3.setQuestion(question5);
+            q5a4.setQuestion(question5);
+            q5a5.setQuestion(question5);
+            
+            answerRepository.save(q5a1);
+            answerRepository.save(q5a2);
+            answerRepository.save(q5a3);
+            answerRepository.save(q5a4);
+            answerRepository.save(q5a5);
+            
 
             log.info("fetch questions");
             for (Question question : questionRepository.findAll()) {

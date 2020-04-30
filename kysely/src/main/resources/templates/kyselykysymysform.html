@@ -9,7 +9,7 @@
 
 <form th:object="${newQuestion}" th:action="@{/talkysym}" action="#" method="post">
     <h1 th:text="${newQuestion.query.title}"></h1>
-    <p>Kysymys: <input type="text" th:field="${newQuestion.questionString}"/></p>
+    <p>Kysymys: <textarea  type="textarea" th:field="${newQuestion.questionString}"/></p>
     <input hidden="true" type="text" th:value="${newQuestion.query.queryId}" th:field="${newQuestion.query.queryId}">
     <input type="submit" value="Save"/>
 </form>

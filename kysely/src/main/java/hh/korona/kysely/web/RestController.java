@@ -33,20 +33,35 @@ public class RestController {
         return (List<Query>) queryRepository.findAll();
     }
 
+    @RequestMapping(value = "/api/kyselyt/{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    Query returnRestQueryById(@PathVariable("id") Long queryId) {
+        return (Query) queryRepository.findById(queryId).get();
+    }
+
     @RequestMapping(value = "/api/kysymykset", method = RequestMethod.GET)
     public @ResponseBody
     List<Question> returnRestQuestionList() {
         return (List<Question>) questionRepository.findAll();
     }
+    
+    @RequestMapping(value = "/api/kysymys/{id}", method = RequestMethod.GET)
+    public @ResponseBody
+    Question returnOneRestQuestion(@PathVariable("id") Long questionId) {
+        return (Question) questionRepository.findById(questionId).get();
+    }
 
     @RequestMapping(value = "/api/tallennavastaus/{questionid}", method = RequestMethod.PUT)
+    @CrossOrigin
     public @ResponseBody
-    Answer saveAnswerRest(@RequestBody List<Answer> answer,@PathVariable ("questionid") Long questionId) {
+    Answer saveAnswerRest(@RequestBody Answer answer, @PathVariable("questionid") Long questionId) {
+
         System.out.println(questionId);
         Question question = questionRepository.findByQuestionId(questionId);
-        question.setAnswer(answer);
-        questionRepository.save(question);
-        return null;
+
+            answer.setQuestion(question);
+
+        return answerRepository.save(answer);
     }
     
 
