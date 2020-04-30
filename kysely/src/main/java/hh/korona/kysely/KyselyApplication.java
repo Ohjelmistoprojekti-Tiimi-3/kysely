@@ -54,8 +54,6 @@ public class KyselyApplication {
             Question question5 = new Question("Miten kurssin sisältöä voisi kehittää?", null, null);
 
 
-
-
             question1.setQuery(query3);
             question2.setQuery(query3);
             question3.setQuery(query3);
@@ -68,6 +66,7 @@ public class KyselyApplication {
             questionRepository.save(question4);
             questionRepository.save(question5);
 
+            //String answer, Date date, Question question
             Answer answer1 = new Answer("Vastaus 1", new Date(),null);
             answer1.setQuestion(question1);
             answerRepository.save(answer1);
