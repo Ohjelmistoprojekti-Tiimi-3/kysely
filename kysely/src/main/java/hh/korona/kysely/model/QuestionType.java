@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class QuestionType {
@@ -17,10 +18,9 @@ public class QuestionType {
 	@Column(name = "questionType_name", nullable = false) 
     private String name;
 	
-	@OneToMany
-	@JoinColumn(name = "question_id")
-	@JsonBackReference
-	private Question question;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "question",fetch = FetchType.EAGER)
+    @JsonManagedReference
+	private List<Question> question;
 
 	public QuestionType() {
 		super();
