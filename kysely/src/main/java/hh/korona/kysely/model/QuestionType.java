@@ -1,8 +1,7 @@
 package hh.korona.kysely.model;
 
 import java.util.List;
-
-//import javax.persistence.CascadeType;
+import javax.persistence.CascadeType;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -18,7 +17,7 @@ public class QuestionType {
 	@Column(name = "questionType_name", nullable = false) 
     private String name;
 	
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "question",fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "questionType",fetch = FetchType.EAGER)
     @JsonManagedReference
 	private List<Question> question;
 
