@@ -55,7 +55,7 @@ public class KyselyApplication {
 
 
 
-
+            //Asetetaan kysymykset kyselyyn
             question1.setQuery(query3);
             question2.setQuery(query3);
             question3.setQuery(query3);
