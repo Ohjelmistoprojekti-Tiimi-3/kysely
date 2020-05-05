@@ -24,7 +24,7 @@ public class QuestionType {
 	public QuestionType() {
 		super();
 	}
-
+	//pitääkö tässä konstruktorissa olla questionlista (id pois)
 	public QuestionType(Long id, String name) {
 		super();
 		this.id = id;
