@@ -9,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.List;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -31,9 +32,6 @@ public class Option {
 	@JsonBackReference
 	private Question question;
 	
-	@OneToMany(cascade = CascadeType.ALL, mappedBy = "option", fetch = FetchType.EAGER)
-	@JsonManagedReference
-	private List<AnsweredOption> answeredOption;
 
 	public Option() {
 		super();
@@ -69,13 +67,6 @@ public class Option {
 		this.question = question;
 	}
 
-	public List<AnsweredOption> getAnsweredOption() {
-		return answeredOption;
-	}
-
-	public void setAnsweredOption(List<AnsweredOption> answeredOption) {
-		this.answeredOption = answeredOption;
-	}
 
 	@Override
 	public String toString() {

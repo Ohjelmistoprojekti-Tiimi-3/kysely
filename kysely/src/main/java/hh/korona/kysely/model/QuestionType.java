@@ -1,5 +1,6 @@
 package hh.korona.kysely.model;
 
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.*;
@@ -46,8 +47,6 @@ public class QuestionType {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
-	
 
 	public List<Question> getQuestion() {
 		return question;
@@ -59,7 +58,9 @@ public class QuestionType {
 
 	@Override
 	public String toString() {
-		return "QuestionType [id=" + id + ", name=" + name + "]";
+		return "QuestionType{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				'}';
 	}
-	
 }

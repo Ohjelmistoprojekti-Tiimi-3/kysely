@@ -28,7 +28,7 @@ public class Question {
     @JsonBackReference
     private QuestionType questionType;
     
-    @OneToMany(cascade = CascadeType.ALL,mappedBy = "question", fetch = FetchType.EAGER)
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "question", fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Option> option;
 
