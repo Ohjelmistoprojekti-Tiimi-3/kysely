@@ -13,7 +13,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 
 import hh.korona.kysely.model.Question;
+import hh.korona.kysely.model.QuestionType;
 import hh.korona.kysely.repository.QuestionRepository;
+import hh.korona.kysely.repository.QuestionTypeRepository;
 import hh.korona.kysely.model.Option;
 import hh.korona.kysely.repository.OptionRepository;
 
@@ -30,7 +32,7 @@ public class KyselyApplication {
     }
 
     @Bean
-    public CommandLineRunner insertData(QuestionRepository questionRepository, AnswerRepository answerRepository, QueryRepository queryRepository, UserRepository userRepository, OptionRepository optionRepository) {
+    public CommandLineRunner insertData(QuestionRepository questionRepository, AnswerRepository answerRepository, QueryRepository queryRepository, UserRepository userRepository, OptionRepository optionRepository, QuestionTypeRepository questionTypeRepository) {
         return (args) -> {
             //Saving some questions date, user, title, questions<List>
             log.info("save a couple of queries");
@@ -70,7 +72,15 @@ public class KyselyApplication {
             questionRepository.save(question3);
             questionRepository.save(question4);
             questionRepository.save(question5);
-
+            
+            // Asetetaan kysymystyypit kysymyksille
+            //String name, List<Question> question
+            
+            QuestionType questionType1 = new QuestionType("Radio", null);
+            question1.setQuestionType(questionType1);
+            questionTypeRepository.save(questionType1);
+           
+            		
             //String answer, Date date, Question question
             Answer answer1 = new Answer("Vastaus 1", new Date(),null);
             answer1.setQuestion(question1);
@@ -80,6 +90,7 @@ public class KyselyApplication {
             //Oletko tyytyväinen kurssilla tekemääsi työnlaatuun ja työmäärään? (Moni valinta)
             
             Option q1o1 = new Option("Erittäin", question1);
+  
             Option q1o2 = new Option("Kyllä", question1);
             Option q1o3 = new Option("En tiedä", question1);
             Option q1o4 = new Option("En", question1);
