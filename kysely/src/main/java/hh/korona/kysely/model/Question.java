@@ -23,9 +23,9 @@ public class Question {
     @JsonBackReference
     private Query query;
     
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "questionType_id")
-    @JsonBackReference
+    @JsonManagedReference
     private QuestionType questionType;
     
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "question", fetch = FetchType.LAZY)

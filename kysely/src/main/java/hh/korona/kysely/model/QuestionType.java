@@ -19,7 +19,7 @@ public class QuestionType {
     private String name;
 	
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "questionType",fetch = FetchType.EAGER)
-    @JsonManagedReference
+    @JsonBackReference
 	private List<Question> question;
 
 	public QuestionType() {
@@ -30,6 +30,11 @@ public class QuestionType {
 		super();
 		this.id = id;
 		this.name = name;
+	}
+
+	public QuestionType(String name, List<Question> question) {
+		this.name = name;
+		this.question = question;
 	}
 
 	public Long getId() {
