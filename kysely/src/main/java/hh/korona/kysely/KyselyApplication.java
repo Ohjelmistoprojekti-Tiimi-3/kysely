@@ -14,6 +14,8 @@ import org.springframework.context.annotation.Bean;
 
 import hh.korona.kysely.model.Question;
 import hh.korona.kysely.repository.QuestionRepository;
+import hh.korona.kysely.model.Option;
+import hh.korona.kysely.repository.OptionRepository;
 
 import java.util.Date;
 import java.util.List;
@@ -28,7 +30,7 @@ public class KyselyApplication {
     }
 
     @Bean
-    public CommandLineRunner insertData(QuestionRepository questionRepository, AnswerRepository answerRepository, QueryRepository queryRepository, UserRepository userRepository) {
+    public CommandLineRunner insertData(QuestionRepository questionRepository, AnswerRepository answerRepository, QueryRepository queryRepository, UserRepository userRepository, OptionRepository optionRepository) {
         return (args) -> {
             //Saving some questions date, user, title, questions<List>
             log.info("save a couple of queries");
@@ -76,25 +78,20 @@ public class KyselyApplication {
 
 
             //Oletko tyytyväinen kurssilla tekemääsi työnlaatuun ja työmäärään?
-            Answer q1a1 = new Answer("Kyllä olen", new Date(), null);
-            Answer q1a2 = new Answer("En ihan, pikkusen enemmän ois voinnut tehdä.", new Date(), null);
-            Answer q1a3 = new Answer("Joo", new Date(), null);
-            Answer q1a4 = new Answer("Ehkä.", new Date(), null);
-            Answer q1a5 = new Answer("¯\\_(ツ)_/¯", new Date(), null);
+            
+            Option q1o1 = new Option("Erittäin", question1);
+            Option q1o2 = new Option("Kyllä", question1);
+            Option q1o3 = new Option("En tiedä", question1);
+            Option q1o4 = new Option("En", question1);
+            Option q1o5 = new Option("En todellakaan", question1);
+            
+            optionRepository.save(q1o1);
+            optionRepository.save(q1o2);
+            optionRepository.save(q1o3);
+            optionRepository.save(q1o4);
+            optionRepository.save(q1o5);
 
-            q1a1.setQuestion(question1);
-            q1a2.setQuestion(question1);
-            q1a3.setQuestion(question1);
-            q1a4.setQuestion(question1);
-            q1a5.setQuestion(question1);
-
-            answerRepository.save(q1a1);
-            answerRepository.save(q1a2);
-            answerRepository.save(q1a3);
-            answerRepository.save(q1a4);
-            answerRepository.save(q1a5);
-
-            //Saavutitko tavoitteet, jotka asetit itsellesi kurssin alussa?
+            //Saavutitko tavoitteet, jotka asetit itsellesi kurssin alussa? (Multiple Choice)
             Answer q2a1 = new Answer("Kyllä.", new Date(), null);
             Answer q2a2 = new Answer("Melkein.", new Date(), null);
             Answer q2a3 = new Answer("Jep, ja ylitin reilusti.", new Date(), null);
