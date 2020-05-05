@@ -77,7 +77,7 @@ public class KyselyApplication {
             answerRepository.save(answer1);
 
 
-            //Oletko tyytyväinen kurssilla tekemääsi työnlaatuun ja työmäärään?
+            //Oletko tyytyväinen kurssilla tekemääsi työnlaatuun ja työmäärään? (Moni valinta)
             
             Option q1o1 = new Option("Erittäin", question1);
             Option q1o2 = new Option("Kyllä", question1);
@@ -91,7 +91,7 @@ public class KyselyApplication {
             optionRepository.save(q1o4);
             optionRepository.save(q1o5);
 
-            //Saavutitko tavoitteet, jotka asetit itsellesi kurssin alussa? (Multiple Choice)
+            //Saavutitko tavoitteet, jotka asetit itsellesi kurssin alussa?
             Answer q2a1 = new Answer("Kyllä.", new Date(), null);
             Answer q2a2 = new Answer("Melkein.", new Date(), null);
             Answer q2a3 = new Answer("Jep, ja ylitin reilusti.", new Date(), null);
