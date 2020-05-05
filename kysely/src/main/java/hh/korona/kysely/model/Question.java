@@ -22,11 +22,21 @@ public class Question {
     @JoinColumn(name = "query_id")
     @JsonBackReference
     private Query query;
+    
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "questionType_id")
+    @JsonManagedReference
+    private QuestionType questionType;
+    
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "question", fetch = FetchType.LAZY)
+    @JsonManagedReference
+    private List<Option> option;
 
     @OneToMany(cascade = CascadeType.ALL,mappedBy = "question",fetch = FetchType.EAGER)
     @JsonManagedReference
     private List<Answer> answer;
-    
+
+
     public Question(String questionString) {
 		super();
 		this.questionString = questionString;
@@ -43,7 +53,18 @@ public class Question {
         this.questionString = question;
     }
 
-    public Long getQuestionId() {
+	
+    public Question(String questionString, Query query, QuestionType questionType, List<Option> option,
+			List<Answer> answer) {
+		super();
+		this.questionString = questionString;
+		this.query = query;
+		this.questionType = questionType;
+		this.option = option;
+		this.answer = answer;
+	}
+
+	public Long getQuestionId() {
 		return questionId;
 	}
 
@@ -75,7 +96,23 @@ public class Question {
         this.answer = answer;
     }
 
-    @Override
+    public QuestionType getQuestionType() {
+		return questionType;
+	}
+
+	public void setQuestionType(QuestionType questionType) {
+		this.questionType = questionType;
+	}
+
+	public List<Option> getOption() {
+		return option;
+	}
+
+	public void setOption(List<Option> option) {
+		this.option = option;
+	}
+
+	@Override
     public String toString() {
         return "Question{" +
                 "questionId=" + questionId +
