@@ -122,9 +122,9 @@ public class KyselyApplication {
             optionRepository.save(q1o5);
 
             //Saavutitko tavoitteet, jotka asetit itsellesi kurssin alussa?
-            Option q2o1 = new Option("Saavutin", null);
-            Option q2o2 = new Option("Lähes tulkoon", null);
-            Option q2o3 = new Option("En saavuttanut", null);
+            Option q2o1 = new Option("Saavutin", question2);
+            Option q2o2 = new Option("Lähes tulkoon", question2);
+            Option q2o3 = new Option("En saavuttanut", question2);
             
             optionRepository.save(q2o1);
             optionRepository.save(q2o2);
@@ -150,8 +150,8 @@ public class KyselyApplication {
 */
             //Saitko opettajalta tarpeeksi apua, kun sitä tarvitsit?
             
-            Option q3o1 = new Option("Sain", null);
-            Option q3o2 = new Option("En saanut", null);
+            Option q3o1 = new Option("Sain", question3);
+            Option q3o2 = new Option("En saanut", question3);
             
             optionRepository.save(q3o1);
             optionRepository.save(q3o2);
@@ -197,11 +197,11 @@ public class KyselyApplication {
 
             //Miten kurssin sisältöä voisi kehittää?
             
-            Option q5o1 = new Option("Lisätä videomateriaalia", null);
-            Option q5o2 = new Option("Lisätä luentomateriaalia", null);
-            Option q5o3 = new Option("Enemmän ryhmätyöskentelyä", null);
-            Option q5o4 = new Option("Enemmän soveltavia tehtäviä", null);
-            Option q5o5 = new Option("Ei tarvitse kehittää, sisältö on hyvä nyt", null);
+            Option q5o1 = new Option("Lisätä videomateriaalia", question5);
+            Option q5o2 = new Option("Lisätä luentomateriaalia", question5);
+            Option q5o3 = new Option("Enemmän ryhmätyöskentelyä", question5);
+            Option q5o4 = new Option("Enemmän soveltavia tehtäviä", question5);
+            Option q5o5 = new Option("Ei tarvitse kehittää, sisältö on hyvä nyt", question5);
             
             optionRepository.save(q5o1);
             optionRepository.save(q5o2);
