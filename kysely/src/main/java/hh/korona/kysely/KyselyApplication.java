@@ -129,7 +129,7 @@ public class KyselyApplication {
             optionRepository.save(q2o1);
             optionRepository.save(q2o2);
             optionRepository.save(q2o3);
-            
+/* 
             Answer q2a1 = new Answer("Kyllä.", new Date(), null);
             Answer q2a2 = new Answer("Melkein.", new Date(), null);
             Answer q2a3 = new Answer("Jep, ja ylitin reilusti.", new Date(), null);
@@ -147,7 +147,7 @@ public class KyselyApplication {
             answerRepository.save(q2a3);
             answerRepository.save(q2a4);
             answerRepository.save(q2a5);
-
+*/
             //Saitko opettajalta tarpeeksi apua, kun sitä tarvitsit?
             
             Option q3o1 = new Option("Sain", null);
@@ -156,7 +156,7 @@ public class KyselyApplication {
             optionRepository.save(q3o1);
             optionRepository.save(q3o2);
             
-            
+/*            
             Answer q3a1 = new Answer("Enpä tarvinnut yhtään.", new Date(), null);
             Answer q3a2 = new Answer("Juu.", new Date(), null);
             Answer q3a3 = new Answer("Kyllä.", new Date(), null);
@@ -174,7 +174,8 @@ public class KyselyApplication {
             answerRepository.save(q3a3);
             answerRepository.save(q3a4);
             answerRepository.save(q3a5);
-
+*/
+            
             //Minkälaisena koit opetuksen selkeyden ja ulosannin?
             Answer q4a1 = new Answer("Helppo.", new Date(), null);
             Answer q4a2 = new Answer("Netti opiskelu teki asiasta hieman vaikeamman, muuten ok.", new Date(), null);
@@ -207,7 +208,7 @@ public class KyselyApplication {
             optionRepository.save(q5o3);
             optionRepository.save(q5o4);
             optionRepository.save(q5o5);
-            
+/*           
             Answer q5a1 = new Answer("Ihan ok nytten.", new Date(), null);
             Answer q5a2 = new Answer("Sopivammaks etä-opiskeluun.", new Date(), null);
             Answer q5a3 = new Answer("Eipä tarvitse paljoo kehityst.", new Date(), null);
@@ -225,7 +226,7 @@ public class KyselyApplication {
             answerRepository.save(q5a3);
             answerRepository.save(q5a4);
             answerRepository.save(q5a5);
-
+*/
             log.info("fetch questions");
             for (Question question : questionRepository.findAll()) {
                 log.info(question.toString());
