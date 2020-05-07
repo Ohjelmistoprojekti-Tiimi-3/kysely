@@ -79,6 +79,7 @@ public class KyselyApplication {
             QuestionType questionType1 = new QuestionType("Radio", null);
             question1.setQuestionType(questionType1);
             questionTypeRepository.save(questionType1);
+            questionRepository.save(question1);
            
             		
             //String answer, Date date, Question question
