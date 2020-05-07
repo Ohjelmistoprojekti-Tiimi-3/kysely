@@ -80,6 +80,24 @@ public class KyselyApplication {
             question1.setQuestionType(questionType1);
             questionTypeRepository.save(questionType1);
             questionRepository.save(question1);
+            
+            question2.setQuestionType(questionType1);
+            questionTypeRepository.save(questionType1);
+            questionRepository.save(question2);
+            
+            question3.setQuestionType(questionType1);
+            questionTypeRepository.save(questionType1);
+            questionRepository.save(question3);
+            
+            QuestionType questionType2 = new QuestionType("Multi", null);
+            question5.setQuestionType(questionType2);
+            questionTypeRepository.save(questionType2);
+            questionRepository.save(question5);
+            
+            QuestionType questionType3 = new QuestionType("Text", null);
+            question4.setQuestionType(questionType3);
+            questionTypeRepository.save(questionType3);
+            questionRepository.save(question4);
            
             		
             //String answer, Date date, Question question
