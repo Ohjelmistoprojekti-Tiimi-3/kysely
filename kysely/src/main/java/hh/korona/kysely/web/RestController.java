@@ -26,7 +26,7 @@ public class RestController {
     @Autowired
     AnswerRepository answerRepository;
 
-
+// Palauttaa kyselyn kysymykset sekä kaikki vastaukset
     @RequestMapping(value = "/api/kyselyt", method = RequestMethod.GET)
     public @ResponseBody
     List<Query> returnRestQueryList() {
@@ -63,5 +63,6 @@ public class RestController {
 
         return answerRepository.save(answer);
     }
+    
 
 }
