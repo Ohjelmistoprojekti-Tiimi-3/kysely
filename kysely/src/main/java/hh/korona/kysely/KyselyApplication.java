@@ -122,6 +122,14 @@ public class KyselyApplication {
             optionRepository.save(q1o5);
 
             //Saavutitko tavoitteet, jotka asetit itsellesi kurssin alussa?
+            Option q2o1 = new Option("Saavutin", null);
+            Option q2o2 = new Option("Lähes tulkoon", null);
+            Option q2o3 = new Option("En saavuttanut", null);
+            
+            optionRepository.save(q2o1);
+            optionRepository.save(q2o2);
+            optionRepository.save(q2o3);
+            
             Answer q2a1 = new Answer("Kyllä.", new Date(), null);
             Answer q2a2 = new Answer("Melkein.", new Date(), null);
             Answer q2a3 = new Answer("Jep, ja ylitin reilusti.", new Date(), null);
@@ -141,6 +149,14 @@ public class KyselyApplication {
             answerRepository.save(q2a5);
 
             //Saitko opettajalta tarpeeksi apua, kun sitä tarvitsit?
+            
+            Option q3o1 = new Option("Sain", null);
+            Option q3o2 = new Option("En saanut", null);
+            
+            optionRepository.save(q3o1);
+            optionRepository.save(q3o2);
+            
+            
             Answer q3a1 = new Answer("Enpä tarvinnut yhtään.", new Date(), null);
             Answer q3a2 = new Answer("Juu.", new Date(), null);
             Answer q3a3 = new Answer("Kyllä.", new Date(), null);
@@ -179,6 +195,19 @@ public class KyselyApplication {
             answerRepository.save(q4a5);
 
             //Miten kurssin sisältöä voisi kehittää?
+            
+            Option q5o1 = new Option("Lisätä videomateriaalia", null);
+            Option q5o2 = new Option("Lisätä luentomateriaalia", null);
+            Option q5o3 = new Option("Enemmän ryhmätyöskentelyä", null);
+            Option q5o4 = new Option("Enemmän soveltavia tehtäviä", null);
+            Option q5o5 = new Option("Ei tarvitse kehittää, sisältö on hyvä nyt", null);
+            
+            optionRepository.save(q5o1);
+            optionRepository.save(q5o2);
+            optionRepository.save(q5o3);
+            optionRepository.save(q5o4);
+            optionRepository.save(q5o5);
+            
             Answer q5a1 = new Answer("Ihan ok nytten.", new Date(), null);
             Answer q5a2 = new Answer("Sopivammaks etä-opiskeluun.", new Date(), null);
             Answer q5a3 = new Answer("Eipä tarvitse paljoo kehityst.", new Date(), null);
