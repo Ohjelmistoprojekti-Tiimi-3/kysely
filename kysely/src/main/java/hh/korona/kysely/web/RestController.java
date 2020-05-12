@@ -4,7 +4,10 @@ package hh.korona.kysely.web;
 import java.util.List;
 
 import hh.korona.kysely.model.Answer;
+import hh.korona.kysely.model.Option;
 import hh.korona.kysely.repository.AnswerRepository;
+import hh.korona.kysely.repository.OptionRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,6 +28,9 @@ public class RestController {
 
     @Autowired
     AnswerRepository answerRepository;
+    
+    @Autowired
+    OptionRepository optionRepository;
 
     // Palauttaa kyselyn kysymykset sekä kaikki vastaukset
     @RequestMapping(value = "/api/kyselyt", method = RequestMethod.GET)
@@ -63,4 +69,14 @@ public class RestController {
 
         return answerRepository.save(answer);
     }
+    
+    @RequestMapping(value = "api/tallennavaihtoehto/{questionid}", method = RequestMethod.POST)
+    public @ResponseBody
+    Option saveOptionRest(@RequestBody Option option, @PathVariable("questionid") Long questionId) {
+    	System.out.println(questionId);
+    	Question question = questionRepository.findByQuestionId(questionId);
+    	option.setQuestion(question);
+    	return optionRepository.save(option);
+    }
+    
 }
