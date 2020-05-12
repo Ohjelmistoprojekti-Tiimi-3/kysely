@@ -6,6 +6,7 @@ import java.util.Date;
 import javax.persistence.*;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Answer {
@@ -14,33 +15,31 @@ public class Answer {
     @Column(name = "answer_id")
     private Long id;
 	
-	@Column(name = "answer", nullable = false) 
-    private String answer;
+	@Column(name = "answerText", nullable = false)
+    private String answerText;
 
     @Column(name = "date")
     private Date date;
-    
+
+    @JsonIgnore
     @ManyToOne
-	@JoinColumn(name = "question_id")
-	@JsonBackReference
+	@JoinColumn(name = "questionId")
 	private Question question;
 
 	public Answer() {
 		super();
 	}
 
-	public Answer(String answer, Date date, Question question) {
-		super();
-		this.answer = answer;
+	public Answer(String answerText, Date date, Question question) {
+		this.answerText = answerText;
 		this.date = date;
 		this.question = question;
 	}
 
-	public Answer(String answer, Question question) {
-		this.answer = answer;
+	public Answer(String answerText, Question question) {
+		this.answerText = answerText;
 		this.question = question;
 	}
-
 
 	public Long getId() {
 		return id;
@@ -50,12 +49,12 @@ public class Answer {
 		this.id = id;
 	}
 
-	public String getAnswer() {
-		return answer;
+	public String getAnswerText() {
+		return answerText;
 	}
 
-	public void setAnswer(String answer) {
-		this.answer = answer;
+	public void setAnswerText(String answerText) {
+		this.answerText = answerText;
 	}
 
 	public Date getDate() {
@@ -77,9 +76,11 @@ public class Answer {
 
 	@Override
 	public String toString() {
-		return "Answer [id=" + id + ", answer=" + answer + ", date=" + date + "]";
+		return "Answer{" +
+				"id=" + id +
+				", answerText='" + answerText + '\'' +
+				", date=" + date +
+				", question=" + question +
+				'}';
 	}
-    
-    
-
 }

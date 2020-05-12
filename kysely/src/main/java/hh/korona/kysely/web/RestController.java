@@ -26,7 +26,7 @@ public class RestController {
     @Autowired
     AnswerRepository answerRepository;
 
-// Palauttaa kyselyn kysymykset sekä kaikki vastaukset
+    // Palauttaa kyselyn kysymykset sekä kaikki vastaukset
     @RequestMapping(value = "/api/kyselyt", method = RequestMethod.GET)
     public @ResponseBody
     List<Query> returnRestQueryList() {
@@ -44,14 +44,14 @@ public class RestController {
     List<Question> returnRestQuestionList() {
         return (List<Question>) questionRepository.findAll();
     }
-    
+
     @RequestMapping(value = "/api/kysymys/{id}", method = RequestMethod.GET)
     public @ResponseBody
     Question returnOneRestQuestion(@PathVariable("id") Long questionId) {
         return (Question) questionRepository.findById(questionId).get();
     }
 
-    @RequestMapping(value = "/api/tallennavastaus/{questionid}", method = RequestMethod.PUT)
+    @RequestMapping(value = "/api/tallennavastaus/{questionid}", method = RequestMethod.POST)
     @CrossOrigin
     public @ResponseBody
     Answer saveAnswerRest(@RequestBody Answer answer, @PathVariable("questionid") Long questionId) {
@@ -59,10 +59,8 @@ public class RestController {
         System.out.println(questionId);
         Question question = questionRepository.findByQuestionId(questionId);
 
-            answer.setQuestion(question);
+        answer.setQuestion(question);
 
         return answerRepository.save(answer);
     }
-    
-
 }

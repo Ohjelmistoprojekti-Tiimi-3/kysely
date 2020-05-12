@@ -118,7 +118,6 @@ public class Question {
                 "questionId=" + questionId +
                 ", question='" + questionString + '\'' +
                 ", query=" + query +
-                ", answer=" + answer +
                 '}';
     }
 }
