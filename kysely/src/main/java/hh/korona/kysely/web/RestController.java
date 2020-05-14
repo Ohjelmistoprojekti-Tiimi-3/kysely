@@ -13,8 +13,9 @@ import hh.korona.kysely.model.Question;
 import hh.korona.kysely.repository.QueryRepository;
 import hh.korona.kysely.repository.QuestionRepository;
 
-@CrossOrigin
+
 @org.springframework.web.bind.annotation.RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class RestController {
 
     @Autowired
@@ -52,7 +53,6 @@ public class RestController {
     }
 
     @RequestMapping(value = "/api/tallennavastaus/{questionid}", method = RequestMethod.POST)
-    @CrossOrigin
     public @ResponseBody
     Answer saveAnswerRest(@RequestBody Answer answer, @PathVariable("questionid") Long questionId) {
 
