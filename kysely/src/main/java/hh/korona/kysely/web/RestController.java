@@ -20,8 +20,9 @@ import hh.korona.kysely.repository.OptionRepository;
 import hh.korona.kysely.repository.QueryRepository;
 import hh.korona.kysely.repository.QuestionRepository;
 
-@CrossOrigin
+
 @org.springframework.web.bind.annotation.RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class RestController {
 
     @Autowired
@@ -32,7 +33,7 @@ public class RestController {
 
     @Autowired
     AnswerRepository answerRepository;
-
+    
     @Autowired
     OptionRepository optionRepository;
 
@@ -68,7 +69,6 @@ public class RestController {
     }
 
     @RequestMapping(value = "/api/tallennavastaus/{questionid}", method = RequestMethod.POST)
-    @CrossOrigin
     public @ResponseBody
     Answer saveAnswerRest(@RequestBody Answer answer, @PathVariable("questionid") Long questionId) {
 
@@ -79,4 +79,14 @@ public class RestController {
 
         return answerRepository.save(answer);
     }
+    
+    @RequestMapping(value = "api/tallennavaihtoehto/{questionid}", method = RequestMethod.POST)
+    public @ResponseBody
+    Option saveOptionRest(@RequestBody Option option, @PathVariable("questionid") Long questionId) {
+    	System.out.println(questionId);
+    	Question question = questionRepository.findByQuestionId(questionId);
+    	option.setQuestion(question);
+    	return optionRepository.save(option);
+    }
+    
 }
