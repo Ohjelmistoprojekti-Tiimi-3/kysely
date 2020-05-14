@@ -3,13 +3,20 @@ package hh.korona.kysely.web;
 
 import java.util.List;
 
-import hh.korona.kysely.model.Answer;
-import hh.korona.kysely.repository.AnswerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import hh.korona.kysely.model.Answer;
+import hh.korona.kysely.model.Option;
 import hh.korona.kysely.model.Query;
 import hh.korona.kysely.model.Question;
+import hh.korona.kysely.repository.AnswerRepository;
+import hh.korona.kysely.repository.OptionRepository;
 import hh.korona.kysely.repository.QueryRepository;
 import hh.korona.kysely.repository.QuestionRepository;
 
@@ -25,6 +32,9 @@ public class RestController {
 
     @Autowired
     AnswerRepository answerRepository;
+
+    @Autowired
+    OptionRepository optionRepository;
 
     // Palauttaa kyselyn kysymykset sekä kaikki vastaukset
     @RequestMapping(value = "/api/kyselyt", method = RequestMethod.GET)
@@ -43,6 +53,12 @@ public class RestController {
     public @ResponseBody
     List<Question> returnRestQuestionList() {
         return (List<Question>) questionRepository.findAll();
+    }
+    
+    @RequestMapping(value = "/api/valinnat", method = RequestMethod.GET)
+    public @ResponseBody
+    List<Option> returnRestOptionList() {
+        return (List<Option>) optionRepository.findAll();
     }
 
     @RequestMapping(value = "/api/kysymys/{id}", method = RequestMethod.GET)

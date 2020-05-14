@@ -78,7 +78,11 @@ public class KyselyController {
         Query query = queryRepository.findOneByQueryId(question.getQuery().getQueryId());
         question.setQuery(query);
         questionRepository.save(question);
-        return "redirect:/kysymykset";
+        if (question.getQuestionType().getName() == "Radio" || question.getQuestionType().getName() == "Multi") {
+        	return "redirect:/valintalisays/" + question.getQuestionId();
+        } else {
+        	return "redirect:/kysymykset";
+        }
     }
 
 
