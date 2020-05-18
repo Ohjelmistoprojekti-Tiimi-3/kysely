@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Kysymysform</title>
+</head>
+<body>
+<h1>Kysymys</h1>
+
+<form action="#" th:action="@{/tallenvalinta/} + ${question.questionId}" th:object="${option}" method="post">
+	
+	<p>Kysymys: </p>
+	<input type="hidden" id="questionid" th:field="${question.questionId}" readonly="readonly" style="width:40%" />
+	<input type="text" id="question" th:field="${question.questionString}" readonly="readonly" style="width:40%" /> <br/> <br/>
+    <textarea rows="5" cols="70" type="text" th:field="${option.optionText}"/>
+	<br/>
+	<p>Valmiit vaihtoehdot:</p>
+	<tr th:each="optiono : ${question.option}">
+		<td th:text="${optiono.optionText}">1</td>	
+		<br/>
+	</tr>
+	<br/>
+
+    <input type="submit" value="Tallenna"/>
+</form>
+<br/>
+<form class="button" th:action="@{/uusikysym}" method="GET">
+	<input type="submit" value="Valmis"/>
+</form>
+
+</body>
+</html>
