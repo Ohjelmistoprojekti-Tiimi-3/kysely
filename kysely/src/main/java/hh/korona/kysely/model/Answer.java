@@ -15,7 +15,7 @@ public class Answer {
     @Column(name = "answer_id")
     private Long id;
 	
-	@Column(name = "answerText", nullable = false)
+	@Column(name = "answerText", nullable = true)
     private String answerText;
 
     @Column(name = "date")

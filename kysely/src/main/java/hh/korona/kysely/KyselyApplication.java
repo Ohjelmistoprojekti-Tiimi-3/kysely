@@ -36,12 +36,15 @@ public class KyselyApplication {
         return (args) -> {
             //Saving some questions date, user, title, questions<List>
             log.info("save a couple of queries");
-            queryRepository.save(new Query(new Date(), null, "Kysely 1", null));
-            queryRepository.save(new Query(new Date(), null, "Kysely 2", null));
+          //  queryRepository.save(new Query(new Date(), null, "Kysely 1", null));
+           // queryRepository.save(new Query(new Date(), null, "Kysely 2", null));
 
             //queryRepository.save(new Query(new Date(), null, "Kurssipalautekysely", null));
             Query query3 = new Query(new Date(), null, "Kurssipalautekysely", null);
             queryRepository.save(query3);
+            
+            Query query2 = new Query(new Date(), null, "Esimerkkikysely", null);
+            queryRepository.save(query2);
 
 
             log.info("save a couple of questions");
@@ -57,7 +60,7 @@ public class KyselyApplication {
             Question question4 = new Question("Minkälaisena koit opetuksen selkeyden ja ulosannin?",null, null);
             Question question5 = new Question("Miten kurssin sisältöä voisi kehittää?", null, null);
 
-
+            Question question6 = new Question("Oletko tyytyväinen kurssilla tekemääsi työnlaatuun ja työmäärään?",null, null);
 
             //Asetetaan kysymykset kyselyyn
 
@@ -66,12 +69,16 @@ public class KyselyApplication {
             question3.setQuery(query3);
             question4.setQuery(query3);
             question5.setQuery(query3);
+            
+            question6.setQuery(query2);
 
             questionRepository.save(question1);
             questionRepository.save(question2);
             questionRepository.save(question3);
             questionRepository.save(question4);
             questionRepository.save(question5);
+            
+            questionRepository.save(question6);
             
             // Asetetaan kysymystyypit kysymyksille
             //String name, List<Question> question
@@ -98,6 +105,10 @@ public class KyselyApplication {
             question4.setQuestionType(questionType3);
             questionTypeRepository.save(questionType3);
             questionRepository.save(question4);
+            
+      
+            question6.setQuestionType(questionType3);
+            questionRepository.save(question6);
            
             		
             //String answer, Date date, Question question
@@ -105,6 +116,10 @@ public class KyselyApplication {
             answer1.setQuestion(question1);
             answerRepository.save(answer1);
 
+            Answer answer6 = new Answer("Esim vastaus 6", new Date(),null);
+            answer6.setQuestion(question6);
+            answerRepository.save(answer6);
+            
 
             //Oletko tyytyväinen kurssilla tekemääsi työnlaatuun ja työmäärään? (Moni valinta)
             
