@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Kysymysform</title>
+</head>
+<body>
+<h1>Kysymys</h1>
+
+<form th:object="${question}" th:action="@{/talkysym}" action="#" method="post">
+    <textarea rows="5" cols="25" type="text" th:field="${question.questionString}"/>
+	<br/>
+    <label for="querylist">Kysely:</label>
+    <select id="querylist" th:field="*{query}" class="form-control">
+        <option th:each="query: ${querylist}"
+                th:value="${query.queryId}"
+                th:text="${query.title}">
+        </option>
+    </select>
+    <br/>
+    <label for="questiontypelist">Kysymys tyyppi:</label>
+    <select id="questiontypelist" th:field="*{questionType}" class="form-control">
+        <option th:each="questiontype: ${questiontypelist}"
+                th:value="${questiontype.id}"
+                th:text="${questiontype.name}">
+        </option>
+    </select>
+
+    <input type="submit" value="Save"/>
+</form>
+
+</body>
+</html>

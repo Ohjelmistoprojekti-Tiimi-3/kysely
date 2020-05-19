@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Kysymysform</title>
+</head>
+<body>
+<h1>Kysymys</h1>
+
+<form th:object="${newQuestion}" th:action="@{/talkysym}" action="#" method="post">
+    <h1 th:text="${newQuestion.query.title}"></h1>
+    <p>Kysymys: <textarea  type="textarea" th:field="${newQuestion.questionString}"/></p>
+    <input hidden="true" type="text" th:value="${newQuestion.query.queryId}" th:field="${newQuestion.query.queryId}">
+    <input type="submit" value="Save"/>
+</form>
+
+
+</body>
+</html>
