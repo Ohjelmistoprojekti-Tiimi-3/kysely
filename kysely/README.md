@@ -1,3 +1,12 @@
+3 Sprintin kuva tietokantakaavioista oneDrivessa 
+https://haagahelia-my.sharepoint.com/personal/bgh311_myy_haaga-helia_fi/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fprojektikaaviot%2Fsprint3%2Fsprint3%5Fkuva%5Fluokkakaavio%2EPNG&parent=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fprojektikaaviot%2Fsprint3
+
+3 Sprintin kuva tietokantakaavioista oneDrivessa 
+https://haagahelia-my.sharepoint.com/personal/bgh311_myy_haaga-helia_fi/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fprojektikaaviot%2Fsprint3%2Fsprint3%5Fkuva%5Ftietokantakaavio%2EPNG&parent=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fprojektikaaviot%2Fsprint3
+
+3 Sprintin kuva javakaavioista oneDrivessa 
+https://haagahelia-my.sharepoint.com/personal/bgh311_myy_haaga-helia_fi/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fprojektikaaviot%2Fsprint3%2Fsprint3%5Fkuva%5Fjavakaavio%2EPNG&parent=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fprojektikaaviot%2Fsprint3
+
 2 Sprintin kuva luokkakaaviosta oneDrivessa versio2
 https://haagahelia-my.sharepoint.com/personal/bgh311_myy_haaga-helia_fi/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fprojektikaaviot%2Fsprint2%2Fsprint2%5Fkuva%5Fprojektikaaviot%5Fluokkakaavio%5Fversio2%2EPNG&parent=%2Fpersonal%2Fbgh311%5Fmyy%5Fhaaga%2Dhelia%5Ffi%2FDocuments%2F%5F%5FKoulu%2FPeriodi%203%20ja%204%2FTeamKorona%20ohjelmistoprojekti%2Fprojektikaaviot%2Fsprint2
 
