@@ -22,7 +22,7 @@ import hh.korona.kysely.repository.QuestionRepository;
 
 
 @org.springframework.web.bind.annotation.RestController
-@CrossOrigin(origins = "https://kyselyappi.herokuapp.com")
+@CrossOrigin(origins = "http://localhost:3000")
 public class RestController {
 
     @Autowired
@@ -39,36 +39,42 @@ public class RestController {
 
     // Palauttaa kyselyn kysymykset sekä kaikki vastaukset
     @RequestMapping(value = "/api/kyselyt", method = RequestMethod.GET)
+    @CrossOrigin(origins = "https://kyselyappi.herokuapp.com")
     public @ResponseBody
     List<Query> returnRestQueryList() {
         return (List<Query>) queryRepository.findAll();
     }
 
     @RequestMapping(value = "/api/kyselyt/{id}", method = RequestMethod.GET)
+    @CrossOrigin(origins = "https://kyselyappi.herokuapp.com")
     public @ResponseBody
     Query returnRestQueryById(@PathVariable("id") Long queryId) {
         return (Query) queryRepository.findById(queryId).get();
     }
 
     @RequestMapping(value = "/api/kysymykset", method = RequestMethod.GET)
+    @CrossOrigin(origins = "https://kyselyappi.herokuapp.com")
     public @ResponseBody
     List<Question> returnRestQuestionList() {
         return (List<Question>) questionRepository.findAll();
     }
     
     @RequestMapping(value = "/api/valinnat", method = RequestMethod.GET)
+    @CrossOrigin(origins = "https://kyselyappi.herokuapp.com")
     public @ResponseBody
     List<Option> returnRestOptionList() {
         return (List<Option>) optionRepository.findAll();
     }
 
     @RequestMapping(value = "/api/kysymys/{id}", method = RequestMethod.GET)
+    @CrossOrigin(origins = "https://kyselyappi.herokuapp.com")
     public @ResponseBody
     Question returnOneRestQuestion(@PathVariable("id") Long questionId) {
         return (Question) questionRepository.findById(questionId).get();
     }
 
     @RequestMapping(value = "/api/tallennavastaus/{questionid}", method = RequestMethod.POST)
+    @CrossOrigin(origins = "https://kyselyappi.herokuapp.com")
     public @ResponseBody
     Answer saveAnswerRest(@RequestBody Answer answer, @PathVariable("questionid") Long questionId) {
 
@@ -81,6 +87,7 @@ public class RestController {
     }
     
     @RequestMapping(value = "/api/tallennavaihtoehto/{optionId}", method = RequestMethod.POST)
+    @CrossOrigin(origins = "https://kyselyappi.herokuapp.com")
     public @ResponseBody
     Option saveOptionRest( @PathVariable("optionId") Long optionId) {
     	System.out.println(optionId);
