@@ -22,7 +22,7 @@ import hh.korona.kysely.repository.QuestionRepository;
 
 
 @org.springframework.web.bind.annotation.RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class RestController {
 
     @Autowired
