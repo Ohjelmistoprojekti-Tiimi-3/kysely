@@ -80,12 +80,12 @@ public class RestController {
         return answerRepository.save(answer);
     }
     
-    @RequestMapping(value = "api/tallennavaihtoehto/{questionid}", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/tallennavaihtoehto/{optionId}", method = RequestMethod.POST)
     public @ResponseBody
-    Option saveOptionRest(@RequestBody Option option, @PathVariable("questionid") Long questionId) {
-    	System.out.println(questionId);
-    	Question question = questionRepository.findByQuestionId(questionId);
-    	option.setQuestion(question);
+    Option saveOptionRest( @PathVariable("optionId") Long optionId) {
+    	System.out.println(optionId);
+        Option option = optionRepository.findByOptionId(optionId);
+        option.addCountOne();
     	return optionRepository.save(option);
     }
     

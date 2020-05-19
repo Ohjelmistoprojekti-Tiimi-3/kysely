@@ -19,59 +19,73 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 public class Option {
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column (name = "optionId")
-	private Long optionId;
-	
-	@Column(name = "optionText")
-	private String optionText;
-	
-	@ManyToOne
-	@JoinColumn(name = "questionId")
-	@JsonBackReference
-	private Question question;
-	
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "optionId")
+    private Long optionId;
 
-	public Option() {
-		super();
-	}
+    @Column(name = "optionText")
+    private String optionText;
 
-	public Option(String optionText, Question question) {
-		super();
-		this.optionText = optionText;
-		this.question = question;
-	}
+    @Column(name = "count")
+    private int count = 0;
 
-	public Long getOptionId() {
-		return optionId;
-	}
-
-	public void setOptionId(Long optionId) {
-		this.optionId = optionId;
-	}
-
-	public String getOptionText() {
-		return optionText;
-	}
-
-	public void setOptionText(String optionText) {
-		this.optionText = optionText;
-	}
-
-	public Question getQuestion() {
-		return question;
-	}
-
-	public void setQuestion(Question question) {
-		this.question = question;
-	}
+    @ManyToOne
+    @JoinColumn(name = "questionId")
+    @JsonBackReference
+    private Question question;
 
 
-	@Override
-	public String toString() {
-		return "Option [optionId=" + optionId + ", optionText=" + optionText + ", question=" + question + "]";
-	}
-	
-	
+    public Option() {
+        super();
+    }
+
+    public Option(String optionText, Question question) {
+        super();
+        this.optionText = optionText;
+        this.question = question;
+    }
+
+    public Long getOptionId() {
+        return optionId;
+    }
+
+    public void setOptionId(Long optionId) {
+        this.optionId = optionId;
+    }
+
+    public String getOptionText() {
+        return optionText;
+    }
+
+    public void setOptionText(String optionText) {
+        this.optionText = optionText;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void addCountOne() {
+        this.count = count + 1;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    @Override
+    public String toString() {
+        return "Option [optionId=" + optionId + ", optionText=" + optionText + ", question=" + question + "]";
+    }
+
+
 }
